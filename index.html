@@ -4,93 +4,289 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Shanghai · Family Archive</title>
-<meta name="theme-color" content="#b8d6e8"/>
+<meta name="theme-color" content="#c6dbea"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#b9d7e8;color:#b21818;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit}
-.hero{min-height:100svh;position:relative;overflow:hidden;background:#050505;color:white;display:flex;flex-direction:column}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(.8) contrast(1.05)}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.24),rgba(0,0,0,.38) 55%,rgba(0,0,0,.78))}
-.nav{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:24px 32px;text-transform:uppercase;letter-spacing:.18em;font-size:12px}
-.navlinks{display:flex;gap:24px}.nav a{text-decoration:none;opacity:.82}.nav a:hover{opacity:1}
-.hero-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 20px 100px}
-.kicker{font-size:12px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:20px;opacity:.8}
-.hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(48px,8vw,124px);line-height:.92;margin:0;max-width:1000px;font-weight:600}
-.hero p{max-width:570px;font-size:clamp(14px,1.6vw,18px);line-height:1.6;color:rgba(255,255,255,.78);margin:28px auto}
-.cta{display:inline-flex;padding:14px 25px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(255,255,255,.05);backdrop-filter:blur(10px);text-decoration:none;text-transform:uppercase;letter-spacing:.15em;font-size:12px}
-.page{max-width:1180px;margin:0 auto;padding:70px 26px 120px}
-.mast{display:grid;grid-template-columns:1fr auto;gap:20px;border-top:2px solid #b21818;border-bottom:2px solid #b21818;padding:16px 0;margin-bottom:48px;font-size:12px;text-transform:uppercase;letter-spacing:.16em}
-.intro{display:grid;grid-template-columns:1.4fr .6fr;gap:34px;align-items:end;margin-bottom:60px}.intro h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(54px,8vw,112px);line-height:.9;margin:0}.stamp{font-size:56px;line-height:1}
-.days{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #b21818;border-left:1px solid #b21818;margin:30px 0 70px}.day{min-height:210px;border-right:1px solid #b21818;border-bottom:1px solid #b21818;padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}.day:hover{background:#b21818;color:#b9d7e8}.date{font-family:"Playfair Display",Georgia,serif;font-size:34px}.district{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.76}.day h3{font-size:18px;margin:18px 0 8px;font-weight:500}
-.detail{background:#b21818;color:#b9d7e8;margin:0 -26px;padding:70px 26px}.detail-inner{max-width:1128px;margin:0 auto}.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:.18em}.detail h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(46px,7vw,92px);line-height:.95;margin:14px 0 30px}.timeline{display:grid;gap:14px}.stop{display:grid;grid-template-columns:110px 1fr;gap:20px;border-top:1px solid rgba(185,215,232,.45);padding:24px 0}.time{font-family:"Playfair Display",Georgia,serif;font-size:28px}.stop h4{margin:0 0 8px;font-size:22px}.stop p{margin:5px 0;line-height:1.55;color:rgba(185,215,232,.87)}.chip{display:inline-block;border:1px solid rgba(185,215,232,.5);border-radius:999px;padding:8px 12px;margin:8px 8px 0 0;font-size:11px;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
-.base{padding:70px 0}.base h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(48px,7vw,90px);line-height:.95;margin:0 0 26px}.food{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.food-card{border:1px solid #b21818;padding:22px;min-height:180px}.food-card h3{margin:0 0 14px;font-size:20px}.food-card p{line-height:1.55;font-size:14px}.footer{border-top:2px solid #b21818;padding:26px 0 50px;display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
-.note{font-size:13px;line-height:1.6;max-width:700px}
-@media(max-width:800px){.navlinks{display:none}.nav{padding:18px}.intro{grid-template-columns:1fr}.days{grid-template-columns:1fr 1fr}.stop{grid-template-columns:80px 1fr}.food{grid-template-columns:1fr}.page{padding-left:18px;padding-right:18px}.detail{margin:0 -18px;padding-left:18px;padding-right:18px}}
-@media(max-width:520px){.days{grid-template-columns:1fr}.hero h1{font-size:54px}.intro h2{font-size:58px}.date{font-size:30px}.stop{grid-template-columns:1fr;gap:4px}.time{font-size:22px}}
+:root{
+  --blue:#c6dbea; --red:#b71f26; --ink:#151515; --cream:#f0eadf; --white:#fff;
+  --glass:rgba(255,255,255,.10); --line:rgba(183,31,38,.55);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--blue);color:var(--red);font-family:"DM Sans",Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit}
+.hero{min-height:100svh;position:relative;color:#fff;background:#060606;overflow:hidden}
+.hero video,.hero .fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero video{opacity:.62;filter:saturate(.8) contrast(1.08)}
+.hero .fallback{background:
+radial-gradient(circle at 70% 25%,rgba(190,28,33,.32),transparent 30%),
+linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.18) 45%,rgba(0,0,0,.7) 100%);pointer-events:none}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:28px 34px;text-transform:uppercase;font-size:11px;letter-spacing:.18em}
+.brand{font-weight:600}
+.desktop-nav{display:flex;gap:26px}
+.desktop-nav a{text-decoration:none;color:rgba(255,255,255,.78);transition:.2s}
+.desktop-nav a:hover{color:#fff}
+.menu-btn{display:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff;padding:10px 14px}
+.mobile-menu{position:fixed;inset:0;z-index:30;background:rgba(7,7,7,.78);backdrop-filter:blur(22px);display:none;padding:90px 28px 28px}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;color:#fff;text-decoration:none;font-family:"EB Garamond",serif;font-size:44px;margin:18px 0}
+.close-menu{position:absolute;right:24px;top:22px;background:transparent;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;width:42px;height:42px}
+.hero-content{position:relative;z-index:3;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 24px 70px}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.hero-title{font-family:"EB Garamond",Georgia,serif;font-weight:500;line-height:.84;font-size:clamp(68px,11vw,162px);max-width:1180px;margin:18px auto 26px;text-transform:uppercase}
+.hero-title span{display:inline-block;opacity:0;transform:translateY(22px);animation:rise .8s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero-copy{max-width:580px;color:rgba(255,255,255,.78);line-height:1.6;font-size:15px}
+.glass-cta{margin-top:28px;display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:14px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.30);background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.04));backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.20);text-transform:uppercase;letter-spacing:.14em;font-size:11px}
+.hero-bottom{position:absolute;bottom:24px;left:34px;right:34px;z-index:4;display:flex;justify-content:space-between;color:rgba(255,255,255,.72);font-size:10px;letter-spacing:.17em;text-transform:uppercase}
+
+.archive{padding:42px 26px 90px;max-width:1280px;margin:0 auto}
+.rule{border-top:2px solid var(--red);border-bottom:2px solid var(--red);display:flex;justify-content:space-between;padding:13px 0;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.cover-grid{display:grid;grid-template-columns:1.35fr .65fr;min-height:480px;border-bottom:2px solid var(--red)}
+.cover-left{padding:58px 36px 58px 0;border-right:2px solid var(--red)}
+.cover-left h2{font-family:"EB Garamond",serif;font-weight:500;font-size:clamp(68px,9vw,126px);line-height:.84;margin:12px 0 24px;letter-spacing:-.03em}
+.cover-right{padding:34px;display:flex;flex-direction:column;justify-content:space-between}
+.zh{font-family:"EB Garamond",serif;font-size:110px;line-height:1}
+.note{font-size:13px;line-height:1.65;max-width:430px}
+.poster-stack{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.poster{min-height:180px;border:1.5px solid var(--red);padding:18px;position:relative;overflow:hidden}
+.poster.one{background:var(--cream)}
+.poster.two{background:var(--red);color:var(--blue)}
+.poster .big{font-family:"EB Garamond",serif;font-size:54px;line-height:.9}
+.poster small{position:absolute;bottom:14px;left:16px;text-transform:uppercase;letter-spacing:.12em}
+
+.route-head{margin:58px 0 18px;display:flex;justify-content:space-between;gap:20px;align-items:end}
+.route-head h3{font-family:"EB Garamond",serif;font-size:58px;font-weight:500;margin:0}
+.route-head p{max-width:430px;font-size:13px;line-height:1.6}
+.date-strip{display:flex;gap:10px;overflow:auto;padding:10px 0 18px;scrollbar-width:none}
+.date-strip::-webkit-scrollbar{display:none}
+.date-btn{flex:0 0 auto;border:1.3px solid var(--red);background:transparent;color:var(--red);border-radius:999px;padding:10px 14px;cursor:pointer;font-size:12px}
+.date-btn.active,.date-btn:hover{background:var(--red);color:var(--blue)}
+.day-panel{display:grid;grid-template-columns:.9fr 1.1fr;border:2px solid var(--red);min-height:520px}
+.day-visual{background:var(--red);color:var(--blue);padding:34px;position:relative;overflow:hidden}
+.day-visual:before{content:"上海";position:absolute;right:-14px;bottom:-35px;font-family:"EB Garamond",serif;font-size:170px;opacity:.14}
+.day-kicker{text-transform:uppercase;letter-spacing:.16em;font-size:10px}
+.day-date{font-family:"EB Garamond",serif;font-size:72px;line-height:.9;margin:18px 0 10px}
+.day-title{font-family:"EB Garamond",serif;font-size:54px;line-height:.96;margin:0 0 24px}
+.day-district{font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.day-content{background:var(--blue);padding:30px}
+.stop{display:grid;grid-template-columns:92px 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+.stop:first-child{border-top:0;padding-top:0}
+.stop-time{font-family:"EB Garamond",serif;font-size:30px}
+.stop h4{margin:0 0 7px;font-size:18px}
+.stop p{margin:6px 0;font-size:13px;line-height:1.55}
+.pill{display:inline-flex;margin:8px 6px 0 0;padding:8px 11px;border:1px solid var(--red);border-radius:999px;text-decoration:none;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.pill:hover{background:var(--red);color:var(--blue)}
+
+.cards-title{margin:64px 0 20px;font-family:"EB Garamond",serif;font-size:56px;font-weight:500}
+.editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.ecard{border:1.5px solid var(--red);min-height:220px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.ecard:nth-child(1){grid-column:span 5;background:var(--cream)}
+.ecard:nth-child(2){grid-column:span 3;background:var(--red);color:var(--blue)}
+.ecard:nth-child(3){grid-column:span 4}
+.ecard:nth-child(4){grid-column:span 4}
+.ecard:nth-child(5){grid-column:span 5;background:var(--cream)}
+.ecard:nth-child(6){grid-column:span 3;background:var(--red);color:var(--blue)}
+.ecard .num{font-family:"EB Garamond",serif;font-size:44px}
+.ecard h4{font-size:18px;margin:20px 0 8px}
+.ecard p{font-size:12px;line-height:1.55;margin:0}
+.ecard .ghost{position:absolute;right:-15px;top:-15px;font-family:"EB Garamond",serif;font-size:100px;opacity:.11}
+
+.base{margin-top:72px;padding-top:32px;border-top:2px solid var(--red)}
+.base-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.base-card{border:1.5px solid var(--red);padding:24px;min-height:190px}
+.base h3{font-family:"EB Garamond",serif;font-size:58px;font-weight:500;margin:8px 0 20px}
+.base-card h4{font-size:18px;margin:0 0 10px}
+.base-card p{font-size:13px;line-height:1.55}
+
+.footer{margin-top:70px;border-top:2px solid var(--red);padding:24px 0 10px;display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+
+@media(max-width:900px){
+  .desktop-nav{display:none}.menu-btn{display:block}
+  .cover-grid,.day-panel,.base-grid{grid-template-columns:1fr}
+  .cover-left{border-right:0;border-bottom:2px solid var(--red);padding-right:0}
+  .poster-stack{grid-template-columns:1fr}
+  .editorial-grid{grid-template-columns:1fr 1fr}
+  .ecard{grid-column:span 1!important}
+}
+@media(max-width:620px){
+  .topbar{padding:20px 18px}.hero-bottom{left:18px;right:18px}
+  .archive{padding-left:16px;padding-right:16px}
+  .hero-title{font-size:58px}
+  .cover-left h2{font-size:64px}
+  .cover-right{padding:24px 0}
+  .route-head{display:block}.route-head h3{font-size:48px}
+  .day-visual,.day-content{padding:22px}
+  .day-title{font-size:46px}.day-date{font-size:60px}
+  .stop{grid-template-columns:1fr;gap:4px}
+  .editorial-grid{grid-template-columns:1fr}
+  .footer{display:block}.footer span,.footer a{display:block;margin:8px 0}
+}
 </style>
 </head>
 <body>
 <section class="hero" id="top">
-<video autoplay muted loop playsinline poster="">
+<div class="fallback"></div>
+<video autoplay muted loop playsinline>
 <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260619_191346_9d19d66e-86a4-47f7-8dc6-712c1788c3b2.mp4" type="video/mp4">
 </video>
-<nav class="nav"><div>Shanghai / Family Archive</div><div class="navlinks"><a href="#days">По дням</a><a href="#base">Наша база</a><a href="#food">Еда</a></div></nav>
-<div class="hero-inner">
-<div class="kicker">上海 · осень 2026 · 23.10—03.11</div>
-<h1>WITNESS THE<br>HIDDEN SHANGHAI</h1>
-<p>Наш семейный маршрут по Шанхаю: день за днём, по районам, с адресами для такси, заметками и местами для еды.</p>
-<a class="cta" href="#days">Открыть маршрут</a>
+<div class="topbar">
+  <div class="brand">Shanghai / Family Archive</div>
+  <div class="desktop-nav">
+    <a href="#days">Wander</a><a href="#places">Archive</a><a href="#base">Story</a><a href="#base">Connect</a>
+  </div>
+  <button class="menu-btn" onclick="document.querySelector('.mobile-menu').classList.add('open')">Menu</button>
+</div>
+<div class="mobile-menu">
+<button class="close-menu" onclick="document.querySelector('.mobile-menu').classList.remove('open')">×</button>
+<a href="#days" onclick="this.parentElement.classList.remove('open')">Wander</a>
+<a href="#places" onclick="this.parentElement.classList.remove('open')">Archive</a>
+<a href="#base" onclick="this.parentElement.classList.remove('open')">Story</a>
+<a href="#base" onclick="this.parentElement.classList.remove('open')">Connect</a>
+</div>
+<div class="hero-content">
+  <div class="eyebrow">上海 · 23 OCT — 03 NOV 2026</div>
+  <h1 class="hero-title" id="heroTitle">WITNESS THE HIDDEN SHANGHAI</h1>
+  <p class="hero-copy">Наше маленькое путешествие в большой город. Семейный маршрут по районам — с адресами, остановками, едой и заметками на каждый день.</p>
+  <a class="glass-cta" href="#days">Begin the journey ↘</a>
+</div>
+<div class="hero-bottom"><span>Family archive / China</span><span>Scroll to explore ↓</span></div>
+</section>
+
+<main class="archive">
+<div class="rule"><span>SHANGHAI / FAMILY ARCHIVE</span><span>23.10 — 03.11</span></div>
+<section class="cover-grid">
+  <div class="cover-left">
+    <div class="eyebrow">Путешествие для нашей семьи</div>
+    <h2>Китай,<br>день за днём.</h2>
+    <p class="note">Выбираем дату — внутри порядок прогулки, адреса для такси, районы и остановки. Дальние поездки вынесены отдельно, чтобы не тратить день на переезды через весь город.</p>
+  </div>
+  <div class="cover-right">
+    <div class="zh">旅程</div>
+    <div class="poster-stack">
+      <div class="poster one"><div class="big">FAMILY<br>ARCHIVE</div><small>Shanghai · 2026</small></div>
+      <div class="poster two"><div class="big">中国<br>上海</div><small>Autumn route</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="days">
+<div class="route-head">
+  <div><div class="eyebrow">Дни маршрута</div><h3>Выберите дату.</h3></div>
+  <p>Время ориентировочное. Билеты, рейсы и точный адрес отеля добавим позже.</p>
+</div>
+<div class="date-strip" id="dateStrip"></div>
+<div class="day-panel">
+  <div class="day-visual">
+    <div class="day-kicker" id="dayKicker"></div>
+    <div class="day-date" id="dayDate"></div>
+    <h3 class="day-title" id="dayTitle"></h3>
+    <div class="day-district" id="dayDistrict"></div>
+  </div>
+  <div class="day-content" id="dayContent"></div>
 </div>
 </section>
 
-<main class="page">
-<div class="mast"><span>SHANGHAI / FAMILY ARCHIVE</span><span>Москва → Шанхай → Москва</span></div>
-<section class="intro">
-<div><div class="eyebrow">旅程 / family archive</div><h2>Китай,<br>день за днём.</h2></div>
-<div><div class="stamp">上海</div><p class="note">Маршрут собран по районам, чтобы не ездить через весь город туда‑сюда. Время ориентировочное; точный адрес жилья и рейсы добавим позже.</p></div>
+<h3 class="cards-title" id="places">Сохранённые места.</h3>
+<section class="editorial-grid">
+<div class="ecard"><div class="ghost">01</div><div class="num">01</div><div><h4>Oriental Pearl / Lujiazui</h4><p>Лёгкий день рядом с базой, огни Пудуна и вечерняя набережная.</p></div></div>
+<div class="ecard"><div class="ghost">02</div><div class="num">02</div><div><h4>The Louis + NikeSKIMS</h4><p>Nanjing West / Jing’an — retail, архитектура и временные проекты.</p></div></div>
+<div class="ecard"><div class="ghost">03</div><div class="num">03</div><div><h4>Yuyuan + Old Street</h4><p>Старый город, сады и классическая шанхайская атмосфера.</p></div></div>
+<div class="ecard"><div class="ghost">04</div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Сильная музейная точка рядом с Jing’an Sculpture Park.</p></div></div>
+<div class="ecard"><div class="ghost">05</div><div class="num">05</div><div><h4>Wukang + Anfu</h4><p>Subdued, Brandy Melville, прогулка по бывшей французской концессии.</p></div></div>
+<div class="ecard"><div class="ghost">06</div><div class="num">06</div><div><h4>Gate M + Qiantan</h4><p>West Bund и красная спираль Endless Spiral в отдельном архитектурном дне.</p></div></div>
 </section>
 
-<section id="days" class="days">
-<div class="day"><div><div class="date">23.10</div><div class="district">Москва → Шанхай</div></div><h3>Вылет из Москвы</h3></div>
-<div class="day"><div><div class="date">24.10</div><div class="district">Lingang · дальний выезд</div></div><h3>Космос и озеро Дишуй</h3></div>
-<div class="day"><div><div class="date">25.10</div><div class="district">Lujiazui · рядом с базой</div></div><h3>Жемчужина и огни Пудуна</h3></div>
-<div class="day"><div><div class="date">26.10</div><div class="district">Jing’an · West Nanjing Road</div></div><h3>The Louis, NikeSKIMS и Mercedes</h3></div>
-<div class="day"><div><div class="date">27.10</div><div class="district">Huangpu · старый центр</div></div><h3>Юйюань и старый город</h3></div>
-<div class="day"><div><div class="date">28.10</div><div class="district">Jing’an · Suzhou Creek</div></div><h3>Динозавры и 1000 Trees</h3></div>
-<div class="day"><div><div class="date">29.10</div><div class="district">Большой парк</div></div><h3>Disneyland / LEGOLAND</h3></div>
-<div class="day"><div><div class="date">30.10</div><div class="district">Xuhui · Changning</div></div><h3>Wukang, Anfu и капибары</h3></div>
-<div class="day"><div><div class="date">31.10</div><div class="district">Huangpu · западный берег</div></div><h3>Expo, The Roof и Huaihai</h3></div>
-<div class="day"><div><div class="date">01.11</div><div class="district">Expo Culture Park · Pudong</div></div><h3>Красный павильон и тропики</h3></div>
-<div class="day"><div><div class="date">02.11</div><div class="district">West Bund · Qiantan</div></div><h3>Gate M и красная спираль</h3></div>
-<div class="day"><div><div class="date">03.11</div><div class="district">Шанхай → Москва</div></div><h3>Возвращение домой</h3></div>
-</section>
-</main>
-
-<section class="detail">
-<div class="detail-inner">
-<div class="eyebrow">Суббота, 24 октября · Lingang</div>
-<h2>Космос<br>и озеро Дишуй</h2>
-<div class="timeline">
-<div class="stop"><div class="time">10:00</div><div><h4>Shanghai Astronomy Museum</h4><p>Космос, иммерсивные залы и архитектура. На посещение — примерно 3–4 часа.</p><p><b>地址:</b> 上海市浦东新区临港大道380号 · 380 Lingang Avenue, Pudong</p><p><b>Метро:</b> линия 16 · Dishui Lake / 滴水湖</p><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Shanghai+Astronomy+Museum" target="_blank" rel="noopener">Открыть карту</a></div></div>
-<div class="stop"><div class="time">13:30</div><div><h4>COMMUNE · InterContinental Harbour City</h4><p>Китайские и международные блюда. Удобная остановка на обед после музея.</p><p><b>地址:</b> 上海市浦东新区滴水湖南岛1号</p><a class="chip" href="https://www.google.com/maps/search/?api=1&query=InterContinental+Shanghai+Harbour+City" target="_blank" rel="noopener">Открыть карту</a></div></div>
-<div class="stop"><div class="time">15:00</div><div><h4>Dishui Lake · 滴水湖</h4><p>Спокойная прогулка у воды перед дорогой обратно в центр.</p><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Dishui+Lake+Shanghai" target="_blank" rel="noopener">Открыть карту</a></div></div>
-</div>
-</div>
-</section>
-
-<main class="page">
-<section id="base" class="base">
+<section class="base" id="base">
 <div class="eyebrow">Наша база · Pudong / Lujiazui</div>
-<h2>Живём у<br>Жемчужины.</h2>
-<p class="note">Пока ориентируемся на район Oriental Pearl / 陆家嘴. Когда будет точный адрес жилья, сюда добавим время до каждой точки и оптимальный маршрут домой.</p>
-<div id="food" class="food">
-<div class="food-card"><h3>Din Tai Fung · IFC</h3><p>Сяолунбао, рис и лапша — удобный семейный обед рядом с базой.</p><p>上海市浦东新区世纪大道8号 上海国金中心LG1-17</p></div>
-<div class="food-card"><h3>Tsui Wah · Super Brand Mall</h3><p>Гонконгское кафе: рис, лапша и чай. Подходит для ужина рядом с Oriental Pearl.</p><p>上海市浦东新区陆家嘴西路168号 正大广场6F10</p></div>
+<h3>Живём у Жемчужины.</h3>
+<p class="note">Пока ориентируемся на район Oriental Pearl / 陆家嘴. Когда будет точный адрес жилья, обновим старт каждой прогулки и дорогу домой.</p>
+<div class="base-grid">
+  <div class="base-card"><h4>Din Tai Fung · IFC</h4><p>Сяолунбао, рис и лапша. Удобный семейный обед в районе Lujiazui.</p><p>上海市浦东新区世纪大道8号 上海国金中心LG1-17</p></div>
+  <div class="base-card"><h4>Tsui Wah · Super Brand Mall</h4><p>Гонконгское кафе: рис, лапша и чай. Вариант ужина рядом с «Жемчужиной».</p><p>上海市浦东新区陆家嘴西路168号 正大广场6F10</p></div>
 </div>
 </section>
-<footer class="footer"><span>Shanghai / Family Archive · 2026</span><a href="#top">Наверх ↑</a></footer>
+
+<footer class="footer"><span>Shanghai / Family Archive · 2026</span><a href="#top">Back to top ↑</a></footer>
 </main>
+
+<script>
+const days = [
+{d:"23.10",k:"пятница, 23 октября",t:"Вылет из Москвы",district:"Москва → Шанхай",stops:[
+["—","Дорога","Вылет из Москвы. Детали рейса добавим позже.",""]
+]},
+{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",stops:[
+["10:00","Shanghai Astronomy Museum","Космос, иммерсивные залы и архитектура. На посещение 3–4 часа.","上海市浦东新区临港大道380号"],
+["13:30","COMMUNE · InterContinental Harbour City","Обед после музея. Китайские и международные блюда.","上海市浦东新区滴水湖南岛1号"],
+["15:00","Dishui Lake · 滴水湖","Спокойная прогулка у воды перед дорогой обратно.",""]
+]},
+{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и огни Пудуна",district:"Lujiazui · рядом с базой",stops:[
+["11:00","Oriental Pearl / Lujiazui","Лёгкий день после дальнего выезда: район базы и виды на Пудун.",""],
+["14:00","IFC / skyline stop","Обед и прогулка по деловому центру.",""],
+["18:00","Riverside evening","Вечерняя прогулка и огни набережной.",""]
+]},
+{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",stops:[
+["11:00","The Louis","Архитектурно-брендовый проект Louis Vuitton.",""],
+["13:00","HKRI Taikoo Hui","Nike x SKIMS и обед в районе Nanjing West.","789 Nanjing West Road"],
+["16:00","Mercedes-Benz Studio","Временная выставочная точка рядом с кластером.",""]
+]},
+{d:"27.10",k:"вторник, 27 октября",t:"Юйюань и старый город",district:"Huangpu · Old City",stops:[
+["10:30","Yuyuan Garden","Сад, павильоны и классическая архитектура.",""],
+["13:00","Shanghai Old Street","Старый город, еда и прогулка.",""],
+["17:00","Bund / river view","Финал дня у реки.",""]
+]},
+{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",stops:[
+["10:00","Shanghai Natural History Museum","Главная музейная точка дня.",""],
+["13:30","Jing’an Sculpture Park","Прямо рядом — прогулка после музея.","128 Shimen 2nd Road"],
+["16:30","1000 Trees","Архитектурный комплекс у Suzhou Creek.",""]
+]},
+{d:"29.10",k:"четверг, 29 октября",t:"День большого парка",district:"Disneyland / LEGOLAND",stops:[
+["09:00","Выбор на весь день","Disneyland или LEGOLAND — отдельный дальний выезд без дополнительных точек.",""]
+]},
+{d:"30.10",k:"пятница, 30 октября",t:"Wukang, Anfu и капибары",district:"Xuhui · Changning",stops:[
+["11:00","Wukang Road","Subdued + прогулка по району.",""],
+["13:00","Anfu Road","Brandy Melville и обед.",""],
+["16:00","Capyland","Неформальная остановка из сохранённой подборки.",""]
+]},
+{d:"31.10",k:"суббота, 31 октября",t:"Expo, The Roof и Huaihai",district:"Huangpu · city architecture",stops:[
+["10:30","Shanghai World Expo Museum","Архитектура и выставочная часть.",""],
+["14:30","The Roof · Xintiandi","Проект Jean Nouvel + прогулка.",""],
+["17:00","Middle Huaihai Road","Matcha Wang и вечерний street-retail маршрут.",""]
+]},
+{d:"01.11",k:"воскресенье, 1 ноября",t:"Красный павильон и тропики",district:"Expo Culture Park · Pudong",stops:[
+["11:00","China Art Museum / Expo zone","Искусство и большая архитектура.",""],
+["14:30","Shanghai Greenhouse Garden","Тропическая / greenhouse часть дня.",""],
+["17:30","Pudong return","Спокойный вечер рядом с базой.",""]
+]},
+{d:"02.11",k:"понедельник, 2 ноября",t:"Gate M и красная спираль",district:"West Bund · Qiantan",stops:[
+["11:00","Gate M","TAGI и West Bund.",""],
+["14:30","Qiantan Sifang City","Endless Spiral — красная лестница.",""],
+["18:00","Последний вечер","Ужин и свободный шопинг.",""]
+]},
+{d:"03.11",k:"вторник, 3 ноября",t:"Уже дома, в Москве",district:"Шанхай → Москва",stops:[
+["—","Возвращение","Вылет домой. Время добавим после билетов.",""]
+]}
+];
+const strip=document.getElementById('dateStrip');
+function render(i){
+  document.querySelectorAll('.date-btn').forEach((b,j)=>b.classList.toggle('active',i===j));
+  const x=days[i];
+  dayKicker.textContent=x.k; dayDate.textContent=x.d; dayTitle.textContent=x.t; dayDistrict.textContent=x.district;
+  dayContent.innerHTML=x.stops.map(s=>`
+  <div class="stop">
+    <div class="stop-time">${s[0]}</div>
+    <div><h4>${s[1]}</h4><p>${s[2]}</p>${s[3]?'<p><b>Адрес:</b> '+s[3]+'</p>':''}
+    <a class="pill" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s[1]+' Shanghai')}">Открыть карту</a></div>
+  </div>`).join('');
+}
+days.forEach((x,i)=>{const b=document.createElement('button');b.className='date-btn';b.textContent=x.d;b.onclick=()=>render(i);strip.appendChild(b)});
+render(1);
+const title=document.getElementById('heroTitle');
+const txt=title.textContent; title.innerHTML=''; [...txt].forEach((c,i)=>{const s=document.createElement('span');s.textContent=c===' '?'\u00A0':c;s.style.animationDelay=(i*0.028)+'s';title.appendChild(s)});
+</script>
 </body>
 </html>
