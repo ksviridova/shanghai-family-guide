@@ -384,9 +384,53 @@ document.querySelectorAll('img').forEach(img=>{
   const pig=document.getElementById('pigRunner');
   const bubble=document.getElementById('pigBubble');
   const lines=['mini pig mood 🐷','上海的小猪','snack break?','for the vibe ♡','oink oink'];
-  function pop(){ bubble.textContent=lines[Math.floor(Math.random()*lines.length)]; pig.classList.add('show-bubble'); setTimeout(()=>pig.classList.remove('show-bubble'),2400); }
-  pig.addEventListener('click',pop);
-  setInterval(pop,12000);
+  let audioUnlocked=false;
+
+  function makeOink(){
+    try{
+      const AC=window.AudioContext||window.webkitAudioContext;
+      if(!AC) return;
+      const ctx=new AC();
+      const now=ctx.currentTime;
+      const osc=ctx.createOscillator();
+      const gain=ctx.createGain();
+      const filter=ctx.createBiquadFilter();
+
+      osc.type='sawtooth';
+      osc.frequency.setValueAtTime(185,now);
+      osc.frequency.exponentialRampToValueAtTime(105,now+.17);
+      osc.frequency.exponentialRampToValueAtTime(155,now+.29);
+
+      filter.type='lowpass';
+      filter.frequency.setValueAtTime(900,now);
+      filter.Q.setValueAtTime(3,now);
+
+      gain.gain.setValueAtTime(.0001,now);
+      gain.gain.exponentialRampToValueAtTime(.13,now+.018);
+      gain.gain.exponentialRampToValueAtTime(.045,now+.17);
+      gain.gain.exponentialRampToValueAtTime(.0001,now+.34);
+
+      osc.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
+      osc.start(now); osc.stop(now+.36);
+      setTimeout(()=>ctx.close(),500);
+    }catch(e){}
+  }
+
+  function pop(withSound=false){
+    bubble.textContent=lines[Math.floor(Math.random()*lines.length)];
+    pig.classList.add('show-bubble');
+    setTimeout(()=>pig.classList.remove('show-bubble'),2400);
+    if(withSound) makeOink();
+  }
+
+  pig.addEventListener('click',()=>{ audioUnlocked=true; pop(true); });
+
+  document.addEventListener('pointerdown',()=>{ audioUnlocked=true; },{once:true});
+
+  setInterval(()=>{
+    const nearScreen = pig.getBoundingClientRect().left > -20 && pig.getBoundingClientRect().left < window.innerWidth-40;
+    pop(audioUnlocked && nearScreen && Math.random()<.35);
+  },12000);
 })();
 </script>
 </body>
