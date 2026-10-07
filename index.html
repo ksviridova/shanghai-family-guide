@@ -144,6 +144,30 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
   .editorial-grid{grid-template-columns:1fr}
   .footer{display:block}.footer span,.footer a{display:block;margin:8px 0}
 }
+
+/* MINI PIG RUNNER */
+.pig-lane{position:fixed;left:0;right:0;bottom:12px;height:72px;z-index:9999;pointer-events:none;overflow:hidden}
+.mini-pig{position:absolute;left:-120px;bottom:0;width:86px;height:62px;animation:pigRun 19s linear infinite;filter:drop-shadow(0 7px 5px rgba(0,0,0,.18));pointer-events:auto;cursor:pointer}
+.mini-pig:hover{animation-play-state:paused}
+.mini-pig:hover .pig-body{animation:pigHop .38s ease-in-out infinite alternate}
+.pig-body{position:absolute;width:58px;height:38px;left:16px;top:17px;border-radius:52% 48% 44% 48%;background:#f5aeb8;border:1.5px solid #8d4b52;animation:pigBob .48s ease-in-out infinite alternate}
+.pig-head{position:absolute;width:35px;height:33px;right:-15px;top:-7px;border-radius:48%;background:#f8b7c0;border:1.5px solid #8d4b52}
+.pig-ear{position:absolute;width:13px;height:16px;top:-10px;background:#f3a5b0;border:1.5px solid #8d4b52;transform:rotate(22deg);border-radius:70% 20% 60% 30%}
+.pig-ear.e2{right:3px;transform:rotate(-16deg)}
+.pig-snout{position:absolute;width:19px;height:13px;right:-8px;top:13px;border-radius:50%;background:#ef9ca9;border:1.3px solid #8d4b52}
+.pig-snout:before,.pig-snout:after{content:"";position:absolute;width:2.5px;height:3.5px;border-radius:50%;background:#8d4b52;top:4px}.pig-snout:before{left:5px}.pig-snout:after{right:5px}
+.pig-eye{position:absolute;width:3.5px;height:3.5px;background:#332529;border-radius:50%;right:5px;top:8px}
+.pig-leg{position:absolute;width:7px;height:16px;background:#f3a5b0;border:1.2px solid #8d4b52;border-top:0;bottom:-12px;border-radius:0 0 4px 4px}
+.pig-leg.l1{left:9px}.pig-leg.l2{left:37px}
+.pig-tail{position:absolute;left:-10px;top:8px;width:14px;height:14px;border:2px solid #8d4b52;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-25deg)}
+.pig-bubble{position:absolute;left:12px;top:-11px;background:rgba(255,255,255,.88);color:#b71f26;border:1px solid rgba(183,31,38,.25);backdrop-filter:blur(8px);padding:5px 9px;border-radius:999px;font-size:9px;letter-spacing:.08em;white-space:nowrap;opacity:0;animation:pigBubble 19s linear infinite}
+@keyframes pigRun{0%{transform:translateX(-120px) scaleX(1)}46%{transform:translateX(calc(100vw + 120px)) scaleX(1)}49%{transform:translateX(calc(100vw + 120px)) scaleX(-1)}95%{transform:translateX(-120px) scaleX(-1)}100%{transform:translateX(-120px) scaleX(1)}}
+@keyframes pigBob{from{transform:translateY(0) rotate(-1deg)}to{transform:translateY(-4px) rotate(1deg)}}
+@keyframes pigHop{from{transform:translateY(0)}to{transform:translateY(-12px)}}
+@keyframes pigBubble{0%,12%,35%,100%{opacity:0}17%,28%{opacity:1}}
+@media(max-width:620px){.pig-lane{height:54px;bottom:6px}.mini-pig{transform-origin:left bottom;scale:.72;animation-duration:22s}}
+@media(prefers-reduced-motion:reduce){.pig-lane{display:none}}
+
 </style>
 </head>
 <body>
@@ -218,6 +242,7 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 <div class="ecard"><img class="place-img" src="https://oss.gooood.cn/uploads/2015/04/_c_pLixn2J7MMB9ybx-TwnL4Fmlu3ubGqm7_0-uIbdnHzxG3rOhEtGMVRrsF2RFq5I8lzXtw_mXisMcCe7T0tR1jRdSXezeOtTC.jpg" alt="Shanghai Natural History Museum"><div class="ghost">04</div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Сильная музейная точка рядом с Jing’an Sculpture Park.</p><div class="photo-credit">Shanghai Natural History Museum</div></div></div>
 <div class="ecard"><img class="place-img" src="https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp" alt="Wukang Road Shanghai"><div class="ghost">05</div><div class="num">05</div><div><h4>Wukang + Anfu</h4><p>Subdued, Brandy Melville, прогулка по бывшей французской концессии.</p><div class="photo-credit">Wukang Road · Wikimedia Commons</div></div></div>
 <div class="ecard"><img class="place-img" src="https://ak-d.tripcdn.com/images/1mi1x224x992hqj8hA4B7.jpg?proc=source%2Ftrip" alt="1000 Trees Shanghai"><div class="ghost">06</div><div class="num">06</div><div><h4>1000 Trees + West Bund</h4><p>Архитектура, набережная и западная часть города.</p><div class="photo-credit">1000 Trees · Wikimedia Commons</div></div></div>
+<div class="ecard"><div class="num">♡</div><div><h4>MINI PIG MOOD</h4><p>Не обязательная точка маршрута — просто маленький cute-момент для сестры и для вайба. Поросёнок ещё и периодически пробегает по сайту.</p><div class="photo-credit">cute stop · optional</div></div></div>
 </section>
 
 <section class="base" id="base">
@@ -258,12 +283,12 @@ const days = [
 ["13:00","Shanghai Old Street","Старый город, еда и прогулка.",""],
 ["17:00","Bund / river view","Финал дня у реки.",""]
 ]},
-{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"https://oss.gooood.cn/uploads/2015/04/_c_pLixn2J7MMB9ybx-TwnL4Fmlu3ubGqm7_0-uIbdnHzxG3rOhEtGMVRrsF2RFq5I8lzXtw_mXisMcCe7T0tR1jRdSXezeOtTC.jpg",stops:[
+{d:"28.10",k:"среда, 28 октября",t:"Natural History Museum + 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"https://oss.gooood.cn/uploads/2015/04/_c_pLixn2J7MMB9ybx-TwnL4Fmlu3ubGqm7_0-uIbdnHzxG3rOhEtGMVRrsF2RFq5I8lzXtw_mXisMcCe7T0tR1jRdSXezeOtTC.jpg",stops:[
 ["10:00","Shanghai Natural History Museum","Главная музейная точка дня.",""],
 ["13:30","Jing’an Sculpture Park","Прямо рядом — прогулка после музея.","128 Shimen 2nd Road"],
 ["16:30","1000 Trees","Архитектурный комплекс у Suzhou Creek.",""]
 ]},
-{d:"29.10",k:"четверг, 29 октября",t:"День большого парка",district:"Disneyland / LEGOLAND",photo:"https://tdrnavi.jp/resource/i/spot/s_620/5e2ddb4ff647d9c8c26e82163b998b56.jpg",stops:[
+{d:"29.10",k:"четверг, 29 октября",t:"LEGOLAND · family day",district:"Disneyland / LEGOLAND",photo:"https://tdrnavi.jp/resource/i/spot/s_620/5e2ddb4ff647d9c8c26e82163b998b56.jpg",stops:[
 ["09:00","Выбор на весь день","Disneyland или LEGOLAND — отдельный дальний выезд без дополнительных точек.",""]
 ]},
 {d:"30.10",k:"пятница, 30 октября",t:"Wukang, Anfu и капибары",district:"Xuhui · Changning",photo:"https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp",stops:[
@@ -306,6 +331,24 @@ days.forEach((x,i)=>{const b=document.createElement('button');b.className='date-
 render(1);
 const title=document.getElementById('heroTitle');
 const txt=title.textContent; title.innerHTML=''; [...txt].forEach((c,i)=>{const s=document.createElement('span');s.textContent=c===' '?'\u00A0':c;s.style.animationDelay=(i*0.028)+'s';title.appendChild(s)});
+
+document.querySelectorAll('img').forEach(img=>{
+  img.onerror=()=>{img.style.background='linear-gradient(135deg,#b71f26,#c6dbea)';img.removeAttribute('src');};
+});
 </script>
+
+<div class="pig-lane" aria-hidden="true">
+  <div class="mini-pig" title="mini pig for the vibe">
+    <div class="pig-bubble">for the vibe ♡</div>
+    <div class="pig-body">
+      <div class="pig-tail"></div>
+      <div class="pig-leg l1"></div><div class="pig-leg l2"></div>
+      <div class="pig-head">
+        <div class="pig-ear"></div><div class="pig-ear e2"></div>
+        <div class="pig-eye"></div><div class="pig-snout"></div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
