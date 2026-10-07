@@ -67,10 +67,14 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 .date-btn{flex:0 0 auto;border:1.3px solid var(--red);background:transparent;color:var(--red);border-radius:999px;padding:10px 14px;cursor:pointer;font-size:12px}
 .date-btn.active,.date-btn:hover{background:var(--red);color:var(--blue)}
 .day-panel{display:grid;grid-template-columns:.9fr 1.1fr;border:2px solid var(--red);min-height:520px}
-.day-visual{background:var(--red);color:var(--blue);padding:34px;position:relative;overflow:hidden;min-height:520px}
-.day-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.44;filter:saturate(.82) contrast(1.05)}
-.day-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(183,31,38,.20),rgba(183,31,38,.75) 72%,rgba(183,31,38,.95));pointer-events:none}
-.day-visual>*:not(.day-photo){position:relative;z-index:2}
+.day-visual{background:var(--red);color:var(--blue);padding:0;position:relative;overflow:hidden;min-height:560px;display:flex;flex-direction:column}
+.day-photo{position:relative;width:100%;height:64%;min-height:350px;object-fit:cover;opacity:1;filter:none;display:block}
+.day-visual:after{display:none}
+.day-visual>*:not(.day-photo){position:relative;z-index:2;margin-left:30px;margin-right:30px}
+.day-kicker{margin-top:24px!important}
+.day-date{margin-top:9px!important;margin-bottom:4px!important}
+.day-title{margin-bottom:12px!important}
+.day-district{margin-bottom:26px!important}
 .day-visual:before{content:"上海";position:absolute;right:-14px;bottom:-35px;font-family:"EB Garamond",serif;font-size:170px;opacity:.14}
 .day-kicker{text-transform:uppercase;letter-spacing:.16em;font-size:10px}
 .day-date{font-family:"EB Garamond",serif;font-size:72px;line-height:.9;margin:18px 0 10px}
@@ -87,13 +91,16 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 .cards-title{margin:64px 0 20px;font-family:"EB Garamond",serif;font-size:56px;font-weight:500}
 .editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.ecard{border:1.5px solid var(--red);min-height:320px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.ecard .place-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;transition:.45s;filter:saturate(.85) contrast(1.04)}
-.ecard:hover .place-img{transform:scale(1.035)}
-.ecard:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(198,219,234,.02),rgba(198,219,234,.12) 45%,rgba(198,219,234,.96) 100%);pointer-events:none}
-.ecard:nth-child(2):after,.ecard:nth-child(6):after{background:linear-gradient(180deg,rgba(183,31,38,.02),rgba(183,31,38,.18) 45%,rgba(183,31,38,.94) 100%)}
-.ecard>div:not(.ghost){position:relative;z-index:2}
-.photo-credit{font-size:9px;opacity:.72;margin-top:10px;text-transform:uppercase;letter-spacing:.08em}
+.ecard{border:1.5px solid var(--red);min-height:410px;padding:0;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--blue)}
+.ecard .place-img{position:relative;width:100%;height:270px;object-fit:cover;opacity:1;transition:.45s;filter:none;display:block}
+.ecard:hover .place-img{transform:scale(1.025)}
+.ecard:after{display:none}
+.ecard>div:not(.ghost){position:relative;z-index:2;padding-left:18px;padding-right:18px}
+.ecard .num{padding-top:14px}
+.ecard>div:last-child{padding-bottom:18px}
+.ecard:nth-child(2),.ecard:nth-child(6){background:var(--red);color:var(--blue)}
+.ecard .ghost{display:none}
+.photo-credit{font-size:9px;opacity:.7;margin-top:9px;text-transform:uppercase;letter-spacing:.08em}
 .ecard:nth-child(1){grid-column:span 5;background:var(--cream)}
 .ecard:nth-child(2){grid-column:span 3;background:var(--red);color:var(--blue)}
 .ecard:nth-child(3){grid-column:span 4}
@@ -123,6 +130,8 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
   .ecard{grid-column:span 1!important}
 }
 @media(max-width:620px){
+  .day-photo{height:320px;min-height:320px}
+  .ecard .place-img{height:250px}
   .topbar{padding:20px 18px}.hero-bottom{left:18px;right:18px}
   .archive{padding-left:16px;padding-right:16px}
   .hero-title{font-size:58px}
