@@ -428,14 +428,14 @@ document.querySelectorAll('img').forEach(img=>{
   }
 
   function movePig(){
-    const pad=18;
+    const pad=6;
     const w=pig.offsetWidth||92;
     const h=pig.offsetHeight||62;
     const maxX=Math.max(pad,window.innerWidth-w-pad);
-    const maxY=Math.max(90,window.innerHeight-h-90);
+    const maxY=Math.max(pad,window.innerHeight-h-pad);
 
     const x=Math.round(pad+Math.random()*(maxX-pad));
-    const y=Math.round(70+Math.random()*(maxY-70));
+    const y=Math.round(pad+Math.random()*(maxY-pad));
 
     pig.classList.toggle('pig-face-left',x<lastX);
     pig.style.left=x+'px';
@@ -456,7 +456,10 @@ document.querySelectorAll('img').forEach(img=>{
   });
 
   document.addEventListener('pointerdown',()=>{audioUnlocked=true;},{once:true});
-  window.addEventListener('resize',()=>{ pig.style.left='18px'; pig.style.top=(window.innerHeight-120)+'px'; });
+  window.addEventListener('resize',()=>{ 
+    pig.style.left=Math.max(6,Math.min(parseFloat(pig.style.left)||18,window.innerWidth-(pig.offsetWidth||92)-6))+'px';
+    pig.style.top=Math.max(6,Math.min(parseFloat(pig.style.top)||18,window.innerHeight-(pig.offsetHeight||62)-6))+'px';
+  });
 
   setTimeout(movePig,1200);
 })();
