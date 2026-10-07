@@ -189,29 +189,6 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
   .footer{display:block}.footer span,.footer a{display:block;margin:8px 0}
 }
 
-/* MINI PIG RUNNER */
-.pig-lane{position:fixed;left:0;right:0;bottom:12px;height:72px;z-index:9999;pointer-events:none;overflow:hidden}
-.mini-pig{position:absolute;left:-120px;bottom:0;width:86px;height:62px;animation:pigRun 19s linear infinite;filter:drop-shadow(0 7px 5px rgba(0,0,0,.18));pointer-events:auto;cursor:pointer}
-.mini-pig:hover{animation-play-state:paused}
-.mini-pig:hover .pig-body{animation:pigHop .38s ease-in-out infinite alternate}
-.pig-body{position:absolute;width:58px;height:38px;left:16px;top:17px;border-radius:52% 48% 44% 48%;background:#f5aeb8;border:1.5px solid #8d4b52;animation:pigBob .48s ease-in-out infinite alternate}
-.pig-head{position:absolute;width:35px;height:33px;right:-15px;top:-7px;border-radius:48%;background:#f8b7c0;border:1.5px solid #8d4b52}
-.pig-ear{position:absolute;width:13px;height:16px;top:-10px;background:#f3a5b0;border:1.5px solid #8d4b52;transform:rotate(22deg);border-radius:70% 20% 60% 30%}
-.pig-ear.e2{right:3px;transform:rotate(-16deg)}
-.pig-snout{position:absolute;width:19px;height:13px;right:-8px;top:13px;border-radius:50%;background:#ef9ca9;border:1.3px solid #8d4b52}
-.pig-snout:before,.pig-snout:after{content:"";position:absolute;width:2.5px;height:3.5px;border-radius:50%;background:#8d4b52;top:4px}.pig-snout:before{left:5px}.pig-snout:after{right:5px}
-.pig-eye{position:absolute;width:3.5px;height:3.5px;background:#332529;border-radius:50%;right:5px;top:8px}
-.pig-leg{position:absolute;width:7px;height:16px;background:#f3a5b0;border:1.2px solid #8d4b52;border-top:0;bottom:-12px;border-radius:0 0 4px 4px}
-.pig-leg.l1{left:9px}.pig-leg.l2{left:37px}
-.pig-tail{position:absolute;left:-10px;top:8px;width:14px;height:14px;border:2px solid #8d4b52;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-25deg)}
-.pig-bubble{position:absolute;left:12px;top:-11px;background:rgba(255,255,255,.88);color:#b71f26;border:1px solid rgba(183,31,38,.25);backdrop-filter:blur(8px);padding:5px 9px;border-radius:999px;font-size:9px;letter-spacing:.08em;white-space:nowrap;opacity:0;animation:pigBubble 19s linear infinite}
-@keyframes pigRun{0%{transform:translateX(-120px) scaleX(1)}46%{transform:translateX(calc(100vw + 120px)) scaleX(1)}49%{transform:translateX(calc(100vw + 120px)) scaleX(-1)}95%{transform:translateX(-120px) scaleX(-1)}100%{transform:translateX(-120px) scaleX(1)}}
-@keyframes pigBob{from{transform:translateY(0) rotate(-1deg)}to{transform:translateY(-4px) rotate(1deg)}}
-@keyframes pigHop{from{transform:translateY(0)}to{transform:translateY(-12px)}}
-@keyframes pigBubble{0%,12%,35%,100%{opacity:0}17%,28%{opacity:1}}
-@media(max-width:620px){.pig-lane{height:54px;bottom:6px}.mini-pig{transform-origin:left bottom;scale:.72;animation-duration:22s}}
-@media(prefers-reduced-motion:reduce){.pig-lane{display:none}}
-
 </style>
 </head>
 <body>
@@ -280,12 +257,12 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 <h3 class="cards-title" id="places">Сохранённые места.</h3>
 <section class="editorial-grid">
-<div class="ecard"><div class="place-sprite sprite-1" role="img" aria-label="Lujiazui skyline"></div><div class="num">01</div><div><h4>Lujiazui / skyline</h4><p>Синий ночной Пудун — именно твой кадр для дня у Жемчужины.</p><div class="photo-credit">твой референс</div></div></div>
-<div class="ecard"><div class="place-sprite sprite-7" role="img" aria-label="Louis Vuitton Visionary Journeys"></div><div class="num">02</div><div><h4>The Louis</h4><p>Чемоданы, роборука и выставочный Louis Vuitton.</p><div class="photo-credit">твой референс</div></div></div>
-<div class="ecard"><div class="place-sprite sprite-2" role="img" aria-label="Mercedes C111 exhibition"></div><div class="num">03</div><div><h4>Mercedes C111</h4><p>Оранжевый C111 — второй кадр fashion/design-дня.</p><div class="photo-credit">твой референс</div></div></div>
-<div class="ecard"><div class="place-sprite sprite-3" role="img" aria-label="Shanghai Natural History Museum"></div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Киты, акулы и большой музейный зал — узнаваемый кадр места.</p><div class="photo-credit">твой референс</div></div></div>
-<div class="ecard"><div class="place-sprite sprite-4" role="img" aria-label="LEGOLAND Shanghai"></div><div class="num">05</div><div><h4>LEGOLAND Shanghai</h4><p>Китайская LEGO-архитектура и семейный день.</p><div class="photo-credit">твой референс</div></div></div>
-<div class="ecard"><div class="place-sprite sprite-6" role="img" aria-label="Shanghai architecture"></div><div class="num">06</div><div><h4>Expo / architecture</h4><p>Медный фасад — визуальный якорь архитектурного дня.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><img class="place-img" src="https://coinventmediastorage.blob.core.windows.net/media-storage-container/tiktok_thumbnail_7441548763182664981.jpg" alt="Lujiazui skyline"><div class="num">01</div><div><h4>Lujiazui / skyline</h4><p>Синий ночной Пудун — именно твой кадр для дня у Жемчужины.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><img class="place-img" src="https://fashionsnap-assets.com/asset/format%3Dauto%2Cwidth%3D1728/article/images/2026/01/nihao-zaijian-32-20260130-044-1115bdde-9d84-4d02-867c-ab321e330390.jpg" alt="Louis Vuitton Visionary Journeys"><div class="num">02</div><div><h4>The Louis</h4><p>Чемоданы, роборука и выставочный Louis Vuitton.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><img class="place-img" src="https://www.supercars.net/blog/wp-content/uploads/2016/04/1104871-1024.jpg" alt="Mercedes C111 exhibition"><div class="num">03</div><div><h4>Mercedes C111</h4><p>Оранжевый C111 — второй кадр fashion/design-дня.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><img class="place-img" src="https://ak-d.tripcdn.com/images/1mi56224x99tlruqr514A_R_600_400_R5_Q90.jpg?proc=source%2Ftrip" alt="Shanghai Natural History Museum"><div class="num">04</div><div><h4>Natural History Museum</h4><p>Киты, акулы и большой музейный зал — узнаваемый кадр места.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><img class="place-img" src="https://dw-media.tkww.hk/epaper/tkp/20250706/TXT_JPG/zm-32.jpg" alt="LEGOLAND Shanghai"><div class="num">05</div><div><h4>LEGOLAND Shanghai</h4><p>Китайская LEGO-архитектура и семейный день.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><img class="place-img" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/d8/a5/39/caption.jpg?h=1400&s=1&w=1400" alt="Shanghai World Expo Museum architecture"><div class="num">06</div><div><h4>Expo / architecture</h4><p>Медный фасад — визуальный якорь архитектурного дня.</p><div class="photo-credit">твой референс</div></div></div>
 <div class="ecard"><img class="place-img" src="https://www.10wallpaper.com/wallpaper/1280x1024/2502/Colorful_lanterns_Yuyuan_garden_Lantern_Festival_Shanghai_China_Bing_4K_1280x1024.jpg" alt="Yuyuan Garden"><div class="num">07</div><div><h4>Yuyuan / Old City</h4><p>Тёплый китайский блок с фонарями и старым городом.</p></div></div>
 <div class="ecard"><img class="place-img" src="https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp" alt="Wukang Road"><div class="num">08</div><div><h4>Wukang / Anfu</h4><p>Улицы, магазины, кафе и спокойный lifestyle-день.</p></div></div>
 </section>
@@ -308,17 +285,17 @@ const days = [
 {d:"23.10",k:"пятница, 23 октября",t:"Вылет из Москвы",district:"Москва → Шанхай",photo:"",sprite:null,gallery:[],stops:[
 ["—","Дорога","Вылет из Москвы. Детали рейса добавим позже.",""]
 ]},
-{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",photo:"",sprite:0,gallery:[],stops:[
+{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",photo:"https://imagecloud.thepaper.cn/thepaper/image/141/48/806.jpg",sprite:null,gallery:[],stops:[
 ["10:00","Shanghai Astronomy Museum","Главная точка дня. Космос, иммерсивные залы и архитектура; на музей закладываем 3–4 часа.","上海市浦东新区临港大道380号"],
 ["13:30","Обед у Dishui Lake","Без лишних переездов: обедаем в районе Lingang / Dishui Lake.",""],
 ["15:00","Dishui Lake · 滴水湖","Неспешная прогулка у воды перед дорогой обратно.",""]
 ]},
-{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и синий Пудун",district:"Lujiazui · рядом с базой",photo:"",sprite:1,gallery:[],stops:[
+{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и синий Пудун",district:"Lujiazui · рядом с базой",photo:"https://coinventmediastorage.blob.core.windows.net/media-storage-container/tiktok_thumbnail_7441548763182664981.jpg",sprite:null,gallery:[],stops:[
 ["11:00","Oriental Pearl / Lujiazui","Лёгкий день рядом с жильём: Жемчужина, небоскрёбы и прогулка по Пудуну.",""],
 ["14:00","IFC / Super Brand Mall","Обед и немного шопинга без длинных переездов.","上海市浦东新区世纪大道8号"],
 ["18:00","Riverside evening","Вечерний skyline — именно под твой синий кадр.",""]
 ]},
-{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",photo:"",sprite:7,gallery:[{sprite:2,caption:"Mercedes C111"}],stops:[
+{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",photo:"https://fashionsnap-assets.com/asset/format%3Dauto%2Cwidth%3D1728/article/images/2026/01/nihao-zaijian-32-20260130-044-1115bdde-9d84-4d02-867c-ab321e330390.jpg",sprite:null,gallery:[{photo:"https://www.supercars.net/blog/wp-content/uploads/2016/04/1104871-1024.jpg",caption:"Mercedes C111"}],stops:[
 ["11:00","The Louis · Visionary Journeys","Выставка, gift store и Le Café Louis Vuitton в корабле The Louis.","南京西路789号 N211"],
 ["13:00","HKRI Taikoo Hui","Nike x SKIMS и обед в одном кластере.","南京西路789号"],
 ["16:00","Mercedes design stop","Автомобильный выставочный блок; сюда ставим твой кадр C111.",""]
@@ -328,12 +305,12 @@ const days = [
 ["13:00","Shanghai Old Street","Старый город, еда и прогулка.",""],
 ["17:00","Bund / river view","Финал дня у реки.",""]
 ]},
-{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"",sprite:3,gallery:[],stops:[
+{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"https://ak-d.tripcdn.com/images/1mi56224x99tlruqr514A_R_600_400_R5_Q90.jpg?proc=source%2Ftrip",sprite:null,gallery:[],stops:[
 ["10:00","Shanghai Natural History Museum","Главная музейная точка; фото с китами и акулами ставим именно сюда.",""],
 ["13:30","Jing’an Sculpture Park","Прямо рядом — прогулка после музея.","128 Shimen 2nd Road"],
 ["16:30","1000 Trees","Архитектура у Suzhou Creek.",""]
 ]},
-{d:"29.10",k:"четверг, 29 октября",t:"LEGOLAND · семейный день",district:"Jinshan · дальний выезд",photo:"",sprite:4,gallery:[{sprite:5,caption:"LEGO water & lanterns"}],stops:[
+{d:"29.10",k:"четверг, 29 октября",t:"LEGOLAND · семейный день",district:"Jinshan · дальний выезд",photo:"https://dw-media.tkww.hk/epaper/tkp/20250706/TXT_JPG/zm-32.jpg",sprite:null,gallery:[{photo:"https://news.66wz.com/pic/003/012/787/00301278705_f234e8a9.jpg",caption:"LEGO water town & lanterns"}],stops:[
 ["09:00","LEGOLAND Shanghai Resort","Отдельный полноценный день. Китайский LEGO-город и водный блок — оба твоих кадра встроены в этот день.","Fengjing Town, Jinshan District, Shanghai"],
 ["—","Без перегруза","После парка — только дорога обратно и спокойный ужин рядом с жильём.",""]
 ]},
@@ -342,7 +319,7 @@ const days = [
 ["13:00","Anfu Road","Brandy Melville, кафе и обед.",""],
 ["16:00","Cute stop / Capyland","Неформальная точка из сохранённой подборки.",""]
 ]},
-{d:"31.10",k:"суббота, 31 октября",t:"Expo, архитектура и Huaihai",district:"Huangpu · design day",photo:"",sprite:6,gallery:[],stops:[
+{d:"31.10",k:"суббота, 31 октября",t:"Expo, архитектура и Huaihai",district:"Huangpu · design day",photo:"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/d8/a5/39/caption.jpg?h=1400&s=1&w=1400",sprite:null,gallery:[],stops:[
 ["10:30","Shanghai World Expo Museum","Архитектурно-выставочная часть дня.","上海市黄浦区蒙自路818号"],
 ["14:30","The Roof · Xintiandi","Jean Nouvel + прогулка по Xintiandi.",""],
 ["17:00","Middle Huaihai Road","Matcha Wang и вечерний street-retail маршрут.",""]
@@ -378,7 +355,7 @@ function render(i){
     <div><h4>${s[1]}</h4><p>${s[2]}</p>${s[3]?'<p><b>Адрес:</b> '+s[3]+'</p>':''}
     <a class="pill" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s[1]+' Shanghai')}">Открыть карту</a></div>
   </div>`).join('');
-  const gallery=(x.gallery||[]).length ? '<div class="day-gallery">'+x.gallery.map(g=>'<div><div class="gallery-photo sprite-photo sprite-'+g.sprite+'"></div><div class="gallery-caption">'+g.caption+'</div></div>').join('')+'</div>' : '';
+  const gallery=(x.gallery||[]).length ? '<div class="day-gallery">'+x.gallery.map(g=>'<div><div class="gallery-photo" style="background-image:url(&quot;'+g.photo+'&quot;);background-size:cover;background-position:center"></div><div class="gallery-caption">'+g.caption+'</div></div>').join('')+'</div>' : '';
   const pigMood=(x.d==='30.10') ? '<div class="mood-note"><div class="mood-pig">🐷</div><div><strong>Mini pig mood</strong><span>Чисто для вайба: минипиг — талисман поездки, не обязательная локация.</span></div></div>' : '';
   dayContent.innerHTML=stops+gallery+pigMood;
 }
@@ -388,23 +365,9 @@ const title=document.getElementById('heroTitle');
 const txt=title.textContent; title.innerHTML=''; [...txt].forEach((c,i)=>{const s=document.createElement('span');s.textContent=c===' '?'\u00A0':c;s.style.animationDelay=(i*0.028)+'s';title.appendChild(s)});
 
 document.querySelectorAll('img').forEach(img=>{
-  img.onerror=()=>{img.style.background='linear-gradient(135deg,#b71f26,#c6dbea)';img.removeAttribute('src');};
+  img.onerror=()=>{img.style.minHeight='285px';img.style.background='linear-gradient(135deg,#b71f26,#c6dbea)';img.style.objectFit='cover';img.removeAttribute('src');};
 });
 </script>
-
-<div class="pig-lane" aria-hidden="true">
-  <div class="mini-pig" title="mini pig for the vibe">
-    <div class="pig-bubble">for the vibe ♡</div>
-    <div class="pig-body">
-      <div class="pig-tail"></div>
-      <div class="pig-leg l1"></div><div class="pig-leg l2"></div>
-      <div class="pig-head">
-        <div class="pig-ear"></div><div class="pig-ear e2"></div>
-        <div class="pig-eye"></div><div class="pig-snout"></div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="pig-runner" id="pigRunner" title="mini pig mood">
   <div class="pig-bob">
     <div class="pig-shadow"></div>
