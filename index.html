@@ -192,10 +192,11 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 /* random mini-pig movement override */
 .pig-runner{
-  left:18px!important;
-  bottom:18px!important;
+  left:18px;
+  top:calc(100vh - 90px);
+  bottom:auto!important;
   animation:none!important;
-  transition:left 1.6s cubic-bezier(.22,.8,.24,1), top 1.6s cubic-bezier(.22,.8,.24,1), transform .35s ease;
+  transition:left 1.35s cubic-bezier(.22,.8,.24,1), top 1.35s cubic-bezier(.22,.8,.24,1), transform .35s ease;
   will-change:left,top,transform;
 }
 .pig-runner.pig-face-left{transform:scaleX(-1)}
@@ -406,11 +407,10 @@ document.querySelectorAll('img').forEach(img=>{
   const bubble=document.getElementById('pigBubble');
   const oink=document.getElementById('pigOink');
   const lines=['mini pig mood 🐷','上海的小猪','snack break?','for the vibe ♡','oink oink'];
-  let audioUnlocked=false;
   let lastX=18;
 
   function playOink(){
-    if(!audioUnlocked || !oink) return;
+    if(!oink) return;
     try{
       oink.pause();
       oink.currentTime=0;
@@ -445,22 +445,24 @@ document.querySelectorAll('img').forEach(img=>{
 
     if(Math.random()<.28) pop(false);
 
-    const next=2200+Math.random()*3400;
+    const duration=(850+Math.random()*1250).toFixed(0);
+    pig.style.transitionDuration=duration+'ms';
+    const next=1100+Math.random()*1800;
     setTimeout(movePig,next);
   }
 
   pig.addEventListener('click',()=>{
-    audioUnlocked=true;
     pop(true);
   });
 
-  document.addEventListener('pointerdown',()=>{audioUnlocked=true;},{once:true});
   window.addEventListener('resize',()=>{ 
     pig.style.left=Math.max(6,Math.min(parseFloat(pig.style.left)||18,window.innerWidth-(pig.offsetWidth||92)-6))+'px';
     pig.style.top=Math.max(6,Math.min(parseFloat(pig.style.top)||18,window.innerHeight-(pig.offsetHeight||62)-6))+'px';
   });
 
-  setTimeout(movePig,1200);
+  pig.style.left=Math.round(window.innerWidth*.46)+'px';
+  pig.style.top=Math.round(window.innerHeight*.46)+'px';
+  setTimeout(movePig,450);
 })();
 </script>
 </body>
