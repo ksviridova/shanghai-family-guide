@@ -189,6 +189,21 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
   .footer{display:block}.footer span,.footer a{display:block;margin:8px 0}
 }
 
+
+/* random mini-pig movement override */
+.pig-runner{
+  left:18px!important;
+  bottom:18px!important;
+  animation:none!important;
+  transition:left 1.6s cubic-bezier(.22,.8,.24,1), top 1.6s cubic-bezier(.22,.8,.24,1), transform .35s ease;
+  will-change:left,top,transform;
+}
+.pig-runner.pig-face-left{transform:scaleX(-1)}
+.pig-runner.pig-face-left .pig-bubble{transform:scaleX(-1)}
+@media(max-width:620px){
+  .pig-runner{transition:left 1.35s cubic-bezier(.22,.8,.24,1), top 1.35s cubic-bezier(.22,.8,.24,1), transform .3s ease}
+}
+
 </style>
 </head>
 <body>
@@ -368,6 +383,12 @@ document.querySelectorAll('img').forEach(img=>{
   img.onerror=()=>{img.style.minHeight='285px';img.style.background='linear-gradient(135deg,#b71f26,#c6dbea)';img.style.objectFit='cover';img.removeAttribute('src');};
 });
 </script>
+
+<audio id="pigOink" preload="auto">
+  <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/6/65/Mudchute_pig_3.ogg/Mudchute_pig_3.ogg.mp3" type="audio/mpeg">
+  <source src="https://upload.wikimedia.org/wikipedia/commons/6/65/Mudchute_pig_3.ogg" type="audio/ogg">
+</audio>
+
 <div class="pig-runner" id="pigRunner" title="mini pig mood">
   <div class="pig-bob">
     <div class="pig-shadow"></div>
@@ -383,54 +404,61 @@ document.querySelectorAll('img').forEach(img=>{
 (function(){
   const pig=document.getElementById('pigRunner');
   const bubble=document.getElementById('pigBubble');
+  const oink=document.getElementById('pigOink');
   const lines=['mini pig mood 🐷','上海的小猪','snack break?','for the vibe ♡','oink oink'];
   let audioUnlocked=false;
+  let lastX=18;
 
-  function makeOink(){
+  function playOink(){
+    if(!audioUnlocked || !oink) return;
     try{
-      const AC=window.AudioContext||window.webkitAudioContext;
-      if(!AC) return;
-      const ctx=new AC();
-      const now=ctx.currentTime;
-      const osc=ctx.createOscillator();
-      const gain=ctx.createGain();
-      const filter=ctx.createBiquadFilter();
-
-      osc.type='sawtooth';
-      osc.frequency.setValueAtTime(185,now);
-      osc.frequency.exponentialRampToValueAtTime(105,now+.17);
-      osc.frequency.exponentialRampToValueAtTime(155,now+.29);
-
-      filter.type='lowpass';
-      filter.frequency.setValueAtTime(900,now);
-      filter.Q.setValueAtTime(3,now);
-
-      gain.gain.setValueAtTime(.0001,now);
-      gain.gain.exponentialRampToValueAtTime(.13,now+.018);
-      gain.gain.exponentialRampToValueAtTime(.045,now+.17);
-      gain.gain.exponentialRampToValueAtTime(.0001,now+.34);
-
-      osc.connect(filter); filter.connect(gain); gain.connect(ctx.destination);
-      osc.start(now); osc.stop(now+.36);
-      setTimeout(()=>ctx.close(),500);
+      oink.pause();
+      oink.currentTime=0;
+      oink.volume=.38;
+      const p=oink.play();
+      if(p && p.catch) p.catch(()=>{});
     }catch(e){}
   }
 
   function pop(withSound=false){
     bubble.textContent=lines[Math.floor(Math.random()*lines.length)];
     pig.classList.add('show-bubble');
-    setTimeout(()=>pig.classList.remove('show-bubble'),2400);
-    if(withSound) makeOink();
+    setTimeout(()=>pig.classList.remove('show-bubble'),2100);
+    if(withSound) playOink();
   }
 
-  pig.addEventListener('click',()=>{ audioUnlocked=true; pop(true); });
+  function movePig(){
+    const pad=18;
+    const w=pig.offsetWidth||92;
+    const h=pig.offsetHeight||62;
+    const maxX=Math.max(pad,window.innerWidth-w-pad);
+    const maxY=Math.max(90,window.innerHeight-h-90);
 
-  document.addEventListener('pointerdown',()=>{ audioUnlocked=true; },{once:true});
+    const x=Math.round(pad+Math.random()*(maxX-pad));
+    const y=Math.round(70+Math.random()*(maxY-70));
 
-  setInterval(()=>{
-    const nearScreen = pig.getBoundingClientRect().left > -20 && pig.getBoundingClientRect().left < window.innerWidth-40;
-    pop(audioUnlocked && nearScreen && Math.random()<.35);
-  },12000);
+    pig.classList.toggle('pig-face-left',x<lastX);
+    pig.style.left=x+'px';
+    pig.style.top=y+'px';
+    pig.style.bottom='auto';
+    lastX=x;
+
+    if(audioUnlocked && Math.random()<.22) playOink();
+    if(Math.random()<.28) pop(false);
+
+    const next=2200+Math.random()*3400;
+    setTimeout(movePig,next);
+  }
+
+  pig.addEventListener('click',()=>{
+    audioUnlocked=true;
+    pop(true);
+  });
+
+  document.addEventListener('pointerdown',()=>{audioUnlocked=true;},{once:true});
+  window.addEventListener('resize',()=>{ pig.style.left='18px'; pig.style.top=(window.innerHeight-120)+'px'; });
+
+  setTimeout(movePig,1200);
 })();
 </script>
 </body>
