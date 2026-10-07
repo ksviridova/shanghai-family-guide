@@ -68,7 +68,7 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 .date-btn.active,.date-btn:hover{background:var(--red);color:var(--blue)}
 .day-panel{display:grid;grid-template-columns:.9fr 1.1fr;border:2px solid var(--red);min-height:520px}
 .day-visual{background:var(--red);color:var(--blue);padding:0;position:relative;overflow:hidden;min-height:560px;display:flex;flex-direction:column}
-.day-photo{position:relative;width:100%;height:64%;min-height:350px;object-fit:cover;opacity:1;filter:none;display:block}
+.day-photo{position:relative;width:100%;height:68%;min-height:390px;object-fit:cover;object-position:center;opacity:1;filter:saturate(.96) contrast(1.02);display:block}
 .day-visual:after{display:none}
 .day-visual>*:not(.day-photo){position:relative;z-index:2;margin-left:30px;margin-right:30px}
 .day-kicker{margin-top:24px!important}
@@ -92,7 +92,7 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 .cards-title{margin:64px 0 20px;font-family:"EB Garamond",serif;font-size:56px;font-weight:500}
 .editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
 .ecard{border:1.5px solid var(--red);min-height:410px;padding:0;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--blue)}
-.ecard .place-img{position:relative;width:100%;height:270px;object-fit:cover;opacity:1;transition:.45s;filter:none;display:block}
+.ecard .place-img{position:relative;width:100%;height:285px;object-fit:cover;object-position:center;opacity:1;transition:.45s;filter:saturate(.96) contrast(1.02);display:block}
 .ecard:hover .place-img{transform:scale(1.025)}
 .ecard:after{display:none}
 .ecard>div:not(.ghost){position:relative;z-index:2;padding-left:18px;padding-right:18px}
@@ -212,12 +212,12 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 <h3 class="cards-title" id="places">Сохранённые места.</h3>
 <section class="editorial-grid">
-<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20Tower%20Shanghai.jpg?width=1200" alt="Oriental Pearl Tower"><div class="ghost">01</div><div class="num">01</div><div><h4>Oriental Pearl / Lujiazui</h4><p>Лёгкий день рядом с базой, огни Пудуна и вечерняя набережная.</p><div class="photo-credit">Photo · Wikimedia Commons</div></div></div>
-<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/2010%20Oriental%20Pearl%20Tower%2C%20Shanghai%2001.jpg?width=1000" alt="Shanghai skyline"><div class="ghost">02</div><div class="num">02</div><div><h4>The Louis + NikeSKIMS</h4><p>Nanjing West / Jing’an — retail, архитектура и временные проекты.</p><div class="photo-credit">Shanghai · Wikimedia Commons</div></div></div>
-<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%2C%20Yu%20Garden.jpg?width=1200" alt="Yu Garden"><div class="ghost">03</div><div class="num">03</div><div><h4>Yuyuan + Old Street</h4><p>Старый город, сады и классическая шанхайская атмосфера.</p><div class="photo-credit">Yu Garden · Wikimedia Commons</div></div></div>
-<div class="ecard"><img class="place-img" src="https://photo.kubar.cn/photo/21355/20190903/20190903_1567502507_7935_2119_6542_8044.jpg" alt="Shanghai Natural History Museum"><div class="ghost">04</div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Сильная музейная точка рядом с Jing’an Sculpture Park.</p><div class="photo-credit">Shanghai Natural History Museum</div></div></div>
-<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wukang%20Road%20near%20Huaihai%20Road%2C%20Shanghai.jpg?width=1200" alt="Wukang Road"><div class="ghost">05</div><div class="num">05</div><div><h4>Wukang + Anfu</h4><p>Subdued, Brandy Melville, прогулка по бывшей французской концессии.</p><div class="photo-credit">Wukang Road · Wikimedia Commons</div></div></div>
-<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/1000%20Trees%2020251127.jpg?width=1000" alt="1000 Trees Shanghai"><div class="ghost">06</div><div class="num">06</div><div><h4>1000 Trees + West Bund</h4><p>Архитектура, набережная и западная часть города.</p><div class="photo-credit">1000 Trees · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://www.colorpuss.com/upload/detail/865/2019120416209717/1.jpg" alt="Oriental Pearl Tower"><div class="ghost">01</div><div class="num">01</div><div><h4>Oriental Pearl / Lujiazui</h4><p>Лёгкий день рядом с базой, огни Пудуна и вечерняя набережная.</p><div class="photo-credit">Photo · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://praew.com/app/uploads/2025/07/%C2%A9_Louis_Vuitton_Malletier-2048x1152.jpg" alt="The Louis Shanghai"><div class="ghost">02</div><div class="num">02</div><div><h4>The Louis + NikeSKIMS</h4><p>Nanjing West / Jing’an — retail, архитектура и временные проекты.</p><div class="photo-credit">Shanghai · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://www.10wallpaper.com/wallpaper/1280x1024/2502/Colorful_lanterns_Yuyuan_garden_Lantern_Festival_Shanghai_China_Bing_4K_1280x1024.jpg" alt="Yu Garden Shanghai"><div class="ghost">03</div><div class="num">03</div><div><h4>Yuyuan + Old Street</h4><p>Старый город, сады и классическая шанхайская атмосфера.</p><div class="photo-credit">Yu Garden · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://oss.gooood.cn/uploads/2015/04/_c_pLixn2J7MMB9ybx-TwnL4Fmlu3ubGqm7_0-uIbdnHzxG3rOhEtGMVRrsF2RFq5I8lzXtw_mXisMcCe7T0tR1jRdSXezeOtTC.jpg" alt="Shanghai Natural History Museum"><div class="ghost">04</div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Сильная музейная точка рядом с Jing’an Sculpture Park.</p><div class="photo-credit">Shanghai Natural History Museum</div></div></div>
+<div class="ecard"><img class="place-img" src="https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp" alt="Wukang Road Shanghai"><div class="ghost">05</div><div class="num">05</div><div><h4>Wukang + Anfu</h4><p>Subdued, Brandy Melville, прогулка по бывшей французской концессии.</p><div class="photo-credit">Wukang Road · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://ak-d.tripcdn.com/images/1mi1x224x992hqj8hA4B7.jpg?proc=source%2Ftrip" alt="1000 Trees Shanghai"><div class="ghost">06</div><div class="num">06</div><div><h4>1000 Trees + West Bund</h4><p>Архитектура, набережная и западная часть города.</p><div class="photo-credit">1000 Trees · Wikimedia Commons</div></div></div>
 </section>
 
 <section class="base" id="base">
@@ -238,50 +238,50 @@ const days = [
 {d:"23.10",k:"пятница, 23 октября",t:"Вылет из Москвы",district:"Москва → Шанхай",photo:"",stops:[
 ["—","Дорога","Вылет из Москвы. Детали рейса добавим позже.",""]
 ]},
-{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Astronomy%20Museum%201.jpg?width=1600",stops:[
+{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",photo:"https://chinatripedia.com/wp-content/uploads/2023/05/shanghai-astronomy-museum-1024x576.webp",stops:[
 ["10:00","Shanghai Astronomy Museum","Космос, иммерсивные залы и архитектура. На посещение 3–4 часа.","上海市浦东新区临港大道380号"],
 ["13:30","COMMUNE · InterContinental Harbour City","Обед после музея. Китайские и международные блюда.","上海市浦东新区滴水湖南岛1号"],
 ["15:00","Dishui Lake · 滴水湖","Спокойная прогулка у воды перед дорогой обратно.",""]
 ]},
-{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и огни Пудуна",district:"Lujiazui · рядом с базой",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20TV%20Tower%2020260811.jpg?width=1600",stops:[
+{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и огни Пудуна",district:"Lujiazui · рядом с базой",photo:"https://www.colorpuss.com/upload/detail/865/2019120416209717/1.jpg",stops:[
 ["11:00","Oriental Pearl / Lujiazui","Лёгкий день после дальнего выезда: район базы и виды на Пудун.",""],
 ["14:00","IFC / skyline stop","Обед и прогулка по деловому центру.",""],
 ["18:00","Riverside evening","Вечерняя прогулка и огни набережной.",""]
 ]},
-{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/HKRI%20Taikoo%20Hui%20from%20above.jpg?width=1600",stops:[
+{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",photo:"https://praew.com/app/uploads/2025/07/%C2%A9_Louis_Vuitton_Malletier-2048x1152.jpg",stops:[
 ["11:00","The Louis","Архитектурно-брендовый проект Louis Vuitton.",""],
 ["13:00","HKRI Taikoo Hui","Nike x SKIMS и обед в районе Nanjing West.","789 Nanjing West Road"],
 ["16:00","Mercedes-Benz Studio","Временная выставочная точка рядом с кластером.",""]
 ]},
-{d:"27.10",k:"вторник, 27 октября",t:"Юйюань и старый город",district:"Huangpu · Old City",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Yu%20Garden.jpg?width=1600",stops:[
+{d:"27.10",k:"вторник, 27 октября",t:"Юйюань и старый город",district:"Huangpu · Old City",photo:"https://www.10wallpaper.com/wallpaper/1280x1024/2502/Colorful_lanterns_Yuyuan_garden_Lantern_Festival_Shanghai_China_Bing_4K_1280x1024.jpg",stops:[
 ["10:30","Yuyuan Garden","Сад, павильоны и классическая архитектура.",""],
 ["13:00","Shanghai Old Street","Старый город, еда и прогулка.",""],
 ["17:00","Bund / river view","Финал дня у реки.",""]
 ]},
-{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Natural%20History%20Museum%20(New)%2001.JPG?width=1600",stops:[
+{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"https://oss.gooood.cn/uploads/2015/04/_c_pLixn2J7MMB9ybx-TwnL4Fmlu3ubGqm7_0-uIbdnHzxG3rOhEtGMVRrsF2RFq5I8lzXtw_mXisMcCe7T0tR1jRdSXezeOtTC.jpg",stops:[
 ["10:00","Shanghai Natural History Museum","Главная музейная точка дня.",""],
 ["13:30","Jing’an Sculpture Park","Прямо рядом — прогулка после музея.","128 Shimen 2nd Road"],
 ["16:30","1000 Trees","Архитектурный комплекс у Suzhou Creek.",""]
 ]},
-{d:"29.10",k:"четверг, 29 октября",t:"День большого парка",district:"Disneyland / LEGOLAND",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Disneyland%20Entrance.jpg?width=1600",stops:[
+{d:"29.10",k:"четверг, 29 октября",t:"День большого парка",district:"Disneyland / LEGOLAND",photo:"https://tdrnavi.jp/resource/i/spot/s_620/5e2ddb4ff647d9c8c26e82163b998b56.jpg",stops:[
 ["09:00","Выбор на весь день","Disneyland или LEGOLAND — отдельный дальний выезд без дополнительных точек.",""]
 ]},
-{d:"30.10",k:"пятница, 30 октября",t:"Wukang, Anfu и капибары",district:"Xuhui · Changning",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/20260209%20103%20Wukang%20Road.jpg?width=1600",stops:[
+{d:"30.10",k:"пятница, 30 октября",t:"Wukang, Anfu и капибары",district:"Xuhui · Changning",photo:"https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp",stops:[
 ["11:00","Wukang Road","Subdued + прогулка по району.",""],
 ["13:00","Anfu Road","Brandy Melville и обед.",""],
 ["16:00","Capyland","Неформальная остановка из сохранённой подборки.",""]
 ]},
-{d:"31.10",k:"суббота, 31 октября",t:"Expo, The Roof и Huaihai",district:"Huangpu · city architecture",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Xintiandi%2C%20Shanghai%2C%20China%20(9737788720).jpg?width=1600",stops:[
+{d:"31.10",k:"суббота, 31 октября",t:"Expo, The Roof и Huaihai",district:"Huangpu · city architecture",photo:"https://www.smartshanghai.com/uploads/repository/2021/05/10/2ad4a7a8-d25e-440f-b66b-a42c63fb0156.jpeg",stops:[
 ["10:30","Shanghai World Expo Museum","Архитектура и выставочная часть.",""],
 ["14:30","The Roof · Xintiandi","Проект Jean Nouvel + прогулка.",""],
 ["17:00","Middle Huaihai Road","Matcha Wang и вечерний street-retail маршрут.",""]
 ]},
-{d:"01.11",k:"воскресенье, 1 ноября",t:"Красный павильон и тропики",district:"Expo Culture Park · Pudong",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/China%20Art%20Museum%20(9542841974).jpg?width=1600",stops:[
+{d:"01.11",k:"воскресенье, 1 ноября",t:"Красный павильон и тропики",district:"Expo Culture Park · Pudong",photo:"https://www.chinadiscovery.com/assets/images/shanghai/attraction/Arts-Museum1.jpg",stops:[
 ["11:00","China Art Museum / Expo zone","Искусство и большая архитектура.",""],
 ["14:30","Shanghai Greenhouse Garden","Тропическая / greenhouse часть дня.",""],
 ["17:30","Pudong return","Спокойный вечер рядом с базой.",""]
 ]},
-{d:"02.11",k:"понедельник, 2 ноября",t:"Gate M и красная спираль",district:"West Bund · Qiantan",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%20Qiantan%20Youcheng%20Park.jpg?width=1600",stops:[
+{d:"02.11",k:"понедельник, 2 ноября",t:"Gate M и красная спираль",district:"West Bund · Qiantan",photo:"https://www.archina.com/uploadWX/20250729/6888bde791fb1175379197510288.jpeg",stops:[
 ["11:00","Gate M","TAGI и West Bund.",""],
 ["14:30","Qiantan Sifang City","Endless Spiral — красная лестница.",""],
 ["18:00","Последний вечер","Ужин и свободный шопинг.",""]
