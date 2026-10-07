@@ -68,7 +68,16 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 .date-btn.active,.date-btn:hover{background:var(--red);color:var(--blue)}
 .day-panel{display:grid;grid-template-columns:.9fr 1.1fr;border:2px solid var(--red);min-height:520px}
 .day-visual{background:var(--red);color:var(--blue);padding:0;position:relative;overflow:hidden;min-height:560px;display:flex;flex-direction:column}
-.day-photo{position:relative;width:100%;height:68%;min-height:390px;object-fit:cover;object-position:center;opacity:1;filter:saturate(.96) contrast(1.02);display:block}
+.day-photo{position:relative;width:100%;height:68%;min-height:390px;background-size:cover;background-position:center;background-repeat:no-repeat;display:block;filter:saturate(.98) contrast(1.02)}
+.sprite-photo{background-image:url('assets/shanghai-sprite.webp')!important;background-size:400% 200%!important;background-repeat:no-repeat!important}
+.sprite-0{background-position:0% 0%!important}
+.sprite-1{background-position:33.333% 0%!important}
+.sprite-2{background-position:66.666% 0%!important}
+.sprite-3{background-position:100% 0%!important}
+.sprite-4{background-position:0% 100%!important}
+.sprite-5{background-position:33.333% 100%!important}
+.sprite-6{background-position:66.666% 100%!important}
+.sprite-7{background-position:100% 100%!important}
 .day-visual:after{display:none}
 .day-visual>*:not(.day-photo){position:relative;z-index:2;margin-left:30px;margin-right:30px}
 .day-kicker{margin-top:24px!important}
@@ -88,11 +97,19 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 .stop p{margin:6px 0;font-size:13px;line-height:1.55}
 .pill{display:inline-flex;margin:8px 6px 0 0;padding:8px 11px;border:1px solid var(--red);border-radius:999px;text-decoration:none;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
 .pill:hover{background:var(--red);color:var(--blue)}
+.day-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0 8px}
+.day-gallery .gallery-photo{height:190px;border:1.5px solid var(--red);background-size:400% 200%;background-repeat:no-repeat}
+.gallery-caption{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.72;margin-top:7px}
+.mood-note{margin:22px 0 4px;border:1.5px solid var(--red);padding:18px;display:flex;gap:14px;align-items:center;background:rgba(240,234,223,.38)}
+.mood-note .mood-pig{font-size:34px;line-height:1}
+.mood-note strong{display:block;font-family:"EB Garamond",serif;font-size:22px;font-weight:500;margin-bottom:3px}
 
 .cards-title{margin:64px 0 20px;font-family:"EB Garamond",serif;font-size:56px;font-weight:500}
 .editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
 .ecard{border:1.5px solid var(--red);min-height:410px;padding:0;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--blue)}
 .ecard .place-img{position:relative;width:100%;height:285px;object-fit:cover;object-position:center;opacity:1;transition:.45s;filter:saturate(.96) contrast(1.02);display:block}
+.ecard .place-sprite{position:relative;width:100%;height:285px;background-image:url('assets/shanghai-sprite.webp');background-size:400% 200%;background-repeat:no-repeat;transition:.45s;filter:saturate(.98) contrast(1.02)}
+.ecard:hover .place-sprite{transform:scale(1.025)}
 .ecard:hover .place-img{transform:scale(1.025)}
 .ecard:after{display:none}
 .ecard>div:not(.ghost){position:relative;z-index:2;padding-left:18px;padding-right:18px}
@@ -121,6 +138,28 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 .footer{margin-top:70px;border-top:2px solid var(--red);padding:24px 0 10px;display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
 
+/* tiny travelling mini pig */
+.pig-runner{position:fixed;left:-120px;bottom:16px;z-index:80;width:92px;height:62px;animation:pigCross 20s linear infinite;filter:drop-shadow(0 8px 8px rgba(0,0,0,.18));cursor:pointer}
+.pig-bob{position:relative;width:100%;height:100%;animation:pigBob .72s ease-in-out infinite}
+.pig-body{position:absolute;left:16px;top:18px;width:58px;height:36px;border-radius:48% 52% 46% 48%;background:#f3a8ae;border:2px solid rgba(126,46,55,.20)}
+.pig-head{position:absolute;right:-10px;top:4px;width:34px;height:31px;border-radius:48% 52% 50% 44%;background:#f7b2b8;border:2px solid rgba(126,46,55,.18)}
+.pig-ear{position:absolute;width:13px;height:14px;background:#f7b2b8;border:2px solid rgba(126,46,55,.18);transform:rotate(28deg);border-radius:70% 15% 65% 20%;top:-8px;right:15px}
+.pig-snout{position:absolute;right:-8px;top:12px;width:19px;height:14px;border-radius:50%;background:#ec8f99;border:2px solid rgba(126,46,55,.16)}
+.pig-snout:before,.pig-snout:after{content:"";position:absolute;top:4px;width:3px;height:4px;background:#8d5057;border-radius:50%}
+.pig-snout:before{left:5px}.pig-snout:after{right:5px}
+.pig-eye{position:absolute;right:8px;top:8px;width:4px;height:4px;border-radius:50%;background:#38272a}
+.pig-leg{position:absolute;bottom:-10px;width:7px;height:15px;background:#e9919b;border-radius:0 0 5px 5px}
+.pig-leg.a{left:9px}.pig-leg.b{left:37px}
+.pig-tail{position:absolute;left:-11px;top:7px;width:16px;height:16px;border:3px solid #e58c96;border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-18deg)}
+.pig-shadow{position:absolute;left:18px;bottom:-9px;width:60px;height:8px;border-radius:50%;background:rgba(0,0,0,.16);filter:blur(4px);animation:shadowPulse .72s ease-in-out infinite}
+.pig-bubble{position:absolute;left:60px;top:-24px;white-space:nowrap;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.86);color:var(--red);border:1px solid rgba(183,31,38,.22);backdrop-filter:blur(10px);font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(5px) scale(.96);transition:.25s}
+.pig-runner:hover{animation-play-state:paused}.pig-runner:hover .pig-bubble,.pig-runner.show-bubble .pig-bubble{opacity:1;transform:none}
+.pig-runner:hover .pig-body{animation:pigHover .45s ease-in-out infinite alternate}
+@keyframes pigCross{0%,7%{transform:translateX(-140px)}84%,100%{transform:translateX(calc(100vw + 160px))}}
+@keyframes pigBob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-7px) rotate(1deg)}}
+@keyframes shadowPulse{0%,100%{transform:scaleX(1);opacity:.16}50%{transform:scaleX(.78);opacity:.09}}
+@keyframes pigHover{from{transform:rotate(-3deg) scale(1)}to{transform:rotate(3deg) scale(1.06)}}
+
 @media(max-width:900px){
   .desktop-nav{display:none}.menu-btn{display:block}
   .cover-grid,.day-panel,.base-grid{grid-template-columns:1fr}
@@ -131,6 +170,11 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 }
 @media(max-width:620px){
   .day-photo{height:320px;min-height:320px}
+  .day-gallery .gallery-photo{height:220px}
+  .pig-runner{width:66px;height:48px;bottom:9px}
+  .pig-body{left:11px;top:15px;width:43px;height:28px}.pig-head{width:27px;height:25px;right:-8px}.pig-ear{width:10px;height:11px;right:11px}
+  .pig-snout{width:16px;height:12px;right:-7px;top:10px}.pig-leg{height:11px;width:6px;bottom:-8px}.pig-leg.a{left:7px}.pig-leg.b{left:28px}
+  .pig-tail{width:13px;height:13px}.pig-bubble{left:42px;top:-25px;font-size:8px}.pig-shadow{left:12px;width:45px}
   .ecard .place-img{height:250px}
   .topbar{padding:20px 18px}.hero-bottom{left:18px;right:18px}
   .archive{padding-left:16px;padding-right:16px}
@@ -224,7 +268,7 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 <div class="date-strip" id="dateStrip"></div>
 <div class="day-panel">
   <div class="day-visual">
-    <img class="day-photo" id="dayPhoto" alt="">
+    <div class="day-photo" id="dayPhoto" role="img" aria-label=""></div>
     <div class="day-kicker" id="dayKicker"></div>
     <div class="day-date" id="dayDate"></div>
     <h3 class="day-title" id="dayTitle"></h3>
@@ -236,13 +280,14 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 <h3 class="cards-title" id="places">Сохранённые места.</h3>
 <section class="editorial-grid">
-<div class="ecard"><img class="place-img" src="https://www.colorpuss.com/upload/detail/865/2019120416209717/1.jpg" alt="Oriental Pearl Tower"><div class="ghost">01</div><div class="num">01</div><div><h4>Oriental Pearl / Lujiazui</h4><p>Лёгкий день рядом с базой, огни Пудуна и вечерняя набережная.</p><div class="photo-credit">Photo · Wikimedia Commons</div></div></div>
-<div class="ecard"><img class="place-img" src="https://praew.com/app/uploads/2025/07/%C2%A9_Louis_Vuitton_Malletier-2048x1152.jpg" alt="The Louis Shanghai"><div class="ghost">02</div><div class="num">02</div><div><h4>The Louis + NikeSKIMS</h4><p>Nanjing West / Jing’an — retail, архитектура и временные проекты.</p><div class="photo-credit">Shanghai · Wikimedia Commons</div></div></div>
-<div class="ecard"><img class="place-img" src="https://www.10wallpaper.com/wallpaper/1280x1024/2502/Colorful_lanterns_Yuyuan_garden_Lantern_Festival_Shanghai_China_Bing_4K_1280x1024.jpg" alt="Yu Garden Shanghai"><div class="ghost">03</div><div class="num">03</div><div><h4>Yuyuan + Old Street</h4><p>Старый город, сады и классическая шанхайская атмосфера.</p><div class="photo-credit">Yu Garden · Wikimedia Commons</div></div></div>
-<div class="ecard"><img class="place-img" src="https://oss.gooood.cn/uploads/2015/04/_c_pLixn2J7MMB9ybx-TwnL4Fmlu3ubGqm7_0-uIbdnHzxG3rOhEtGMVRrsF2RFq5I8lzXtw_mXisMcCe7T0tR1jRdSXezeOtTC.jpg" alt="Shanghai Natural History Museum"><div class="ghost">04</div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Сильная музейная точка рядом с Jing’an Sculpture Park.</p><div class="photo-credit">Shanghai Natural History Museum</div></div></div>
-<div class="ecard"><img class="place-img" src="https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp" alt="Wukang Road Shanghai"><div class="ghost">05</div><div class="num">05</div><div><h4>Wukang + Anfu</h4><p>Subdued, Brandy Melville, прогулка по бывшей французской концессии.</p><div class="photo-credit">Wukang Road · Wikimedia Commons</div></div></div>
-<div class="ecard"><img class="place-img" src="https://ak-d.tripcdn.com/images/1mi1x224x992hqj8hA4B7.jpg?proc=source%2Ftrip" alt="1000 Trees Shanghai"><div class="ghost">06</div><div class="num">06</div><div><h4>1000 Trees + West Bund</h4><p>Архитектура, набережная и западная часть города.</p><div class="photo-credit">1000 Trees · Wikimedia Commons</div></div></div>
-<div class="ecard"><div class="num">♡</div><div><h4>MINI PIG MOOD</h4><p>Не обязательная точка маршрута — просто маленький cute-момент для сестры и для вайба. Поросёнок ещё и периодически пробегает по сайту.</p><div class="photo-credit">cute stop · optional</div></div></div>
+<div class="ecard"><div class="place-sprite sprite-1" role="img" aria-label="Lujiazui skyline"></div><div class="num">01</div><div><h4>Lujiazui / skyline</h4><p>Синий ночной Пудун — именно твой кадр для дня у Жемчужины.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><div class="place-sprite sprite-7" role="img" aria-label="Louis Vuitton Visionary Journeys"></div><div class="num">02</div><div><h4>The Louis</h4><p>Чемоданы, роборука и выставочный Louis Vuitton.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><div class="place-sprite sprite-2" role="img" aria-label="Mercedes C111 exhibition"></div><div class="num">03</div><div><h4>Mercedes C111</h4><p>Оранжевый C111 — второй кадр fashion/design-дня.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><div class="place-sprite sprite-3" role="img" aria-label="Shanghai Natural History Museum"></div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Киты, акулы и большой музейный зал — узнаваемый кадр места.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><div class="place-sprite sprite-4" role="img" aria-label="LEGOLAND Shanghai"></div><div class="num">05</div><div><h4>LEGOLAND Shanghai</h4><p>Китайская LEGO-архитектура и семейный день.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><div class="place-sprite sprite-6" role="img" aria-label="Shanghai architecture"></div><div class="num">06</div><div><h4>Expo / architecture</h4><p>Медный фасад — визуальный якорь архитектурного дня.</p><div class="photo-credit">твой референс</div></div></div>
+<div class="ecard"><img class="place-img" src="https://www.10wallpaper.com/wallpaper/1280x1024/2502/Colorful_lanterns_Yuyuan_garden_Lantern_Festival_Shanghai_China_Bing_4K_1280x1024.jpg" alt="Yuyuan Garden"><div class="num">07</div><div><h4>Yuyuan / Old City</h4><p>Тёплый китайский блок с фонарями и старым городом.</p></div></div>
+<div class="ecard"><img class="place-img" src="https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp" alt="Wukang Road"><div class="num">08</div><div><h4>Wukang / Anfu</h4><p>Улицы, магазины, кафе и спокойный lifestyle-день.</p></div></div>
 </section>
 
 <section class="base" id="base">
@@ -260,72 +305,82 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 <script>
 const days = [
-{d:"23.10",k:"пятница, 23 октября",t:"Вылет из Москвы",district:"Москва → Шанхай",photo:"",stops:[
+{d:"23.10",k:"пятница, 23 октября",t:"Вылет из Москвы",district:"Москва → Шанхай",photo:"",sprite:null,gallery:[],stops:[
 ["—","Дорога","Вылет из Москвы. Детали рейса добавим позже.",""]
 ]},
-{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",photo:"https://chinatripedia.com/wp-content/uploads/2023/05/shanghai-astronomy-museum-1024x576.webp",stops:[
-["10:00","Shanghai Astronomy Museum","Космос, иммерсивные залы и архитектура. На посещение 3–4 часа.","上海市浦东新区临港大道380号"],
-["13:30","COMMUNE · InterContinental Harbour City","Обед после музея. Китайские и международные блюда.","上海市浦东新区滴水湖南岛1号"],
-["15:00","Dishui Lake · 滴水湖","Спокойная прогулка у воды перед дорогой обратно.",""]
+{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",photo:"",sprite:0,gallery:[],stops:[
+["10:00","Shanghai Astronomy Museum","Главная точка дня. Космос, иммерсивные залы и архитектура; на музей закладываем 3–4 часа.","上海市浦东新区临港大道380号"],
+["13:30","Обед у Dishui Lake","Без лишних переездов: обедаем в районе Lingang / Dishui Lake.",""],
+["15:00","Dishui Lake · 滴水湖","Неспешная прогулка у воды перед дорогой обратно.",""]
 ]},
-{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и огни Пудуна",district:"Lujiazui · рядом с базой",photo:"https://www.colorpuss.com/upload/detail/865/2019120416209717/1.jpg",stops:[
-["11:00","Oriental Pearl / Lujiazui","Лёгкий день после дальнего выезда: район базы и виды на Пудун.",""],
-["14:00","IFC / skyline stop","Обед и прогулка по деловому центру.",""],
-["18:00","Riverside evening","Вечерняя прогулка и огни набережной.",""]
+{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и синий Пудун",district:"Lujiazui · рядом с базой",photo:"",sprite:1,gallery:[],stops:[
+["11:00","Oriental Pearl / Lujiazui","Лёгкий день рядом с жильём: Жемчужина, небоскрёбы и прогулка по Пудуну.",""],
+["14:00","IFC / Super Brand Mall","Обед и немного шопинга без длинных переездов.","上海市浦东新区世纪大道8号"],
+["18:00","Riverside evening","Вечерний skyline — именно под твой синий кадр.",""]
 ]},
-{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",photo:"https://praew.com/app/uploads/2025/07/%C2%A9_Louis_Vuitton_Malletier-2048x1152.jpg",stops:[
-["11:00","The Louis","Архитектурно-брендовый проект Louis Vuitton.",""],
-["13:00","HKRI Taikoo Hui","Nike x SKIMS и обед в районе Nanjing West.","789 Nanjing West Road"],
-["16:00","Mercedes-Benz Studio","Временная выставочная точка рядом с кластером.",""]
+{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",photo:"",sprite:7,gallery:[{sprite:2,caption:"Mercedes C111"}],stops:[
+["11:00","The Louis · Visionary Journeys","Выставка, gift store и Le Café Louis Vuitton в корабле The Louis.","南京西路789号 N211"],
+["13:00","HKRI Taikoo Hui","Nike x SKIMS и обед в одном кластере.","南京西路789号"],
+["16:00","Mercedes design stop","Автомобильный выставочный блок; сюда ставим твой кадр C111.",""]
 ]},
-{d:"27.10",k:"вторник, 27 октября",t:"Юйюань и старый город",district:"Huangpu · Old City",photo:"https://www.10wallpaper.com/wallpaper/1280x1024/2502/Colorful_lanterns_Yuyuan_garden_Lantern_Festival_Shanghai_China_Bing_4K_1280x1024.jpg",stops:[
-["10:30","Yuyuan Garden","Сад, павильоны и классическая архитектура.",""],
+{d:"27.10",k:"вторник, 27 октября",t:"Юйюань и старый город",district:"Huangpu · Old City",photo:"https://www.10wallpaper.com/wallpaper/1280x1024/2502/Colorful_lanterns_Yuyuan_garden_Lantern_Festival_Shanghai_China_Bing_4K_1280x1024.jpg",sprite:null,gallery:[],stops:[
+["10:30","Yuyuan Garden","Сад, павильоны и традиционная архитектура.",""],
 ["13:00","Shanghai Old Street","Старый город, еда и прогулка.",""],
 ["17:00","Bund / river view","Финал дня у реки.",""]
 ]},
-{d:"28.10",k:"среда, 28 октября",t:"Natural History Museum + 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"https://oss.gooood.cn/uploads/2015/04/_c_pLixn2J7MMB9ybx-TwnL4Fmlu3ubGqm7_0-uIbdnHzxG3rOhEtGMVRrsF2RFq5I8lzXtw_mXisMcCe7T0tR1jRdSXezeOtTC.jpg",stops:[
-["10:00","Shanghai Natural History Museum","Главная музейная точка дня.",""],
+{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"",sprite:3,gallery:[],stops:[
+["10:00","Shanghai Natural History Museum","Главная музейная точка; фото с китами и акулами ставим именно сюда.",""],
 ["13:30","Jing’an Sculpture Park","Прямо рядом — прогулка после музея.","128 Shimen 2nd Road"],
-["16:30","1000 Trees","Архитектурный комплекс у Suzhou Creek.",""]
+["16:30","1000 Trees","Архитектура у Suzhou Creek.",""]
 ]},
-{d:"29.10",k:"четверг, 29 октября",t:"LEGOLAND · family day",district:"Disneyland / LEGOLAND",photo:"https://tdrnavi.jp/resource/i/spot/s_620/5e2ddb4ff647d9c8c26e82163b998b56.jpg",stops:[
-["09:00","Выбор на весь день","Disneyland или LEGOLAND — отдельный дальний выезд без дополнительных точек.",""]
+{d:"29.10",k:"четверг, 29 октября",t:"LEGOLAND · семейный день",district:"Jinshan · дальний выезд",photo:"",sprite:4,gallery:[{sprite:5,caption:"LEGO water & lanterns"}],stops:[
+["09:00","LEGOLAND Shanghai Resort","Отдельный полноценный день. Китайский LEGO-город и водный блок — оба твоих кадра встроены в этот день.","Fengjing Town, Jinshan District, Shanghai"],
+["—","Без перегруза","После парка — только дорога обратно и спокойный ужин рядом с жильём.",""]
 ]},
-{d:"30.10",k:"пятница, 30 октября",t:"Wukang, Anfu и капибары",district:"Xuhui · Changning",photo:"https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp",stops:[
-["11:00","Wukang Road","Subdued + прогулка по району.",""],
-["13:00","Anfu Road","Brandy Melville и обед.",""],
-["16:00","Capyland","Неформальная остановка из сохранённой подборки.",""]
+{d:"30.10",k:"пятница, 30 октября",t:"Wukang, Anfu и cute stops",district:"Xuhui · former French Concession",photo:"https://nihaochina.com/images/shanghai/placeholder-wukanglu.webp",sprite:null,gallery:[],stops:[
+["11:00","Wukang Road","Subdued + прогулка по красивым улицам.",""],
+["13:00","Anfu Road","Brandy Melville, кафе и обед.",""],
+["16:00","Cute stop / Capyland","Неформальная точка из сохранённой подборки.",""]
 ]},
-{d:"31.10",k:"суббота, 31 октября",t:"Expo, The Roof и Huaihai",district:"Huangpu · city architecture",photo:"https://www.smartshanghai.com/uploads/repository/2021/05/10/2ad4a7a8-d25e-440f-b66b-a42c63fb0156.jpeg",stops:[
-["10:30","Shanghai World Expo Museum","Архитектура и выставочная часть.",""],
-["14:30","The Roof · Xintiandi","Проект Jean Nouvel + прогулка.",""],
+{d:"31.10",k:"суббота, 31 октября",t:"Expo, архитектура и Huaihai",district:"Huangpu · design day",photo:"",sprite:6,gallery:[],stops:[
+["10:30","Shanghai World Expo Museum","Архитектурно-выставочная часть дня.","上海市黄浦区蒙自路818号"],
+["14:30","The Roof · Xintiandi","Jean Nouvel + прогулка по Xintiandi.",""],
 ["17:00","Middle Huaihai Road","Matcha Wang и вечерний street-retail маршрут.",""]
 ]},
-{d:"01.11",k:"воскресенье, 1 ноября",t:"Красный павильон и тропики",district:"Expo Culture Park · Pudong",photo:"https://www.chinadiscovery.com/assets/images/shanghai/attraction/Arts-Museum1.jpg",stops:[
+{d:"01.11",k:"воскресенье, 1 ноября",t:"Красный павильон и тропики",district:"Expo Culture Park · Pudong",photo:"https://www.chinadiscovery.com/assets/images/shanghai/attraction/Arts-Museum1.jpg",sprite:null,gallery:[],stops:[
 ["11:00","China Art Museum / Expo zone","Искусство и большая архитектура.",""],
-["14:30","Shanghai Greenhouse Garden","Тропическая / greenhouse часть дня.",""],
+["14:30","Shanghai Greenhouse Garden","Зелёная / greenhouse часть дня.",""],
 ["17:30","Pudong return","Спокойный вечер рядом с базой.",""]
 ]},
-{d:"02.11",k:"понедельник, 2 ноября",t:"Gate M и красная спираль",district:"West Bund · Qiantan",photo:"https://www.archina.com/uploadWX/20250729/6888bde791fb1175379197510288.jpeg",stops:[
+{d:"02.11",k:"понедельник, 2 ноября",t:"Gate M и красная спираль",district:"West Bund · Qiantan",photo:"https://www.archina.com/uploadWX/20250729/6888bde791fb1175379197510288.jpeg",sprite:null,gallery:[],stops:[
 ["11:00","Gate M","TAGI и West Bund.",""],
 ["14:30","Qiantan Sifang City","Endless Spiral — красная лестница.",""],
-["18:00","Последний вечер","Ужин и свободный шопинг.",""]
+["18:00","Последний вечер","Ужин, сувениры и свободный шопинг.",""]
 ]},
-{d:"03.11",k:"вторник, 3 ноября",t:"Уже дома, в Москве",district:"Шанхай → Москва",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20Tower%20Shanghai.jpg?width=1200",stops:[
-["—","Возвращение","Вылет домой. Время добавим после билетов.",""]
+{d:"03.11",k:"вторник, 3 ноября",t:"Возвращение домой",district:"Шанхай → Москва",photo:"",sprite:null,gallery:[],stops:[
+["—","Вылет","Время добавим после билетов.",""]
 ]}
 ];
 const strip=document.getElementById('dateStrip');
 function render(i){
   document.querySelectorAll('.date-btn').forEach((b,j)=>b.classList.toggle('active',i===j));
   const x=days[i];
-  dayKicker.textContent=x.k; dayDate.textContent=x.d; dayTitle.textContent=x.t; dayDistrict.textContent=x.district; dayPhoto.src=x.photo||""; dayPhoto.alt=x.t; dayPhoto.style.display=x.photo?"block":"none";
-  dayContent.innerHTML=x.stops.map(s=>`
+  dayKicker.textContent=x.k; dayDate.textContent=x.d; dayTitle.textContent=x.t; dayDistrict.textContent=x.district;
+  dayPhoto.className='day-photo';
+  dayPhoto.style.backgroundImage='';
+  dayPhoto.setAttribute('aria-label',x.t);
+  if(Number.isInteger(x.sprite)){ dayPhoto.classList.add('sprite-photo','sprite-'+x.sprite); dayPhoto.style.display='block'; }
+  else if(x.photo){ dayPhoto.style.backgroundImage='url("'+x.photo+'")'; dayPhoto.style.backgroundSize='cover'; dayPhoto.style.backgroundPosition='center'; dayPhoto.style.display='block'; }
+  else { dayPhoto.style.display='none'; }
+  const stops=x.stops.map(s=>`
   <div class="stop">
     <div class="stop-time">${s[0]}</div>
     <div><h4>${s[1]}</h4><p>${s[2]}</p>${s[3]?'<p><b>Адрес:</b> '+s[3]+'</p>':''}
     <a class="pill" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s[1]+' Shanghai')}">Открыть карту</a></div>
   </div>`).join('');
+  const gallery=(x.gallery||[]).length ? '<div class="day-gallery">'+x.gallery.map(g=>'<div><div class="gallery-photo sprite-photo sprite-'+g.sprite+'"></div><div class="gallery-caption">'+g.caption+'</div></div>').join('')+'</div>' : '';
+  const pigMood=(x.d==='30.10') ? '<div class="mood-note"><div class="mood-pig">🐷</div><div><strong>Mini pig mood</strong><span>Чисто для вайба: минипиг — талисман поездки, не обязательная локация.</span></div></div>' : '';
+  dayContent.innerHTML=stops+gallery+pigMood;
 }
 days.forEach((x,i)=>{const b=document.createElement('button');b.className='date-btn';b.textContent=x.d;b.onclick=()=>render(i);strip.appendChild(b)});
 render(1);
@@ -350,5 +405,26 @@ document.querySelectorAll('img').forEach(img=>{
     </div>
   </div>
 </div>
+<div class="pig-runner" id="pigRunner" title="mini pig mood">
+  <div class="pig-bob">
+    <div class="pig-shadow"></div>
+    <div class="pig-body">
+      <div class="pig-tail"></div>
+      <div class="pig-head"><div class="pig-ear"></div><div class="pig-eye"></div><div class="pig-snout"></div></div>
+      <div class="pig-leg a"></div><div class="pig-leg b"></div>
+    </div>
+    <div class="pig-bubble" id="pigBubble">mini pig mood 🐷</div>
+  </div>
+</div>
+<script>
+(function(){
+  const pig=document.getElementById('pigRunner');
+  const bubble=document.getElementById('pigBubble');
+  const lines=['mini pig mood 🐷','上海的小猪','snack break?','for the vibe ♡','oink oink'];
+  function pop(){ bubble.textContent=lines[Math.floor(Math.random()*lines.length)]; pig.classList.add('show-bubble'); setTimeout(()=>pig.classList.remove('show-bubble'),2400); }
+  pig.addEventListener('click',pop);
+  setInterval(pop,12000);
+})();
+</script>
 </body>
 </html>
