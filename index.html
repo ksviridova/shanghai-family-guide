@@ -67,7 +67,10 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 .date-btn{flex:0 0 auto;border:1.3px solid var(--red);background:transparent;color:var(--red);border-radius:999px;padding:10px 14px;cursor:pointer;font-size:12px}
 .date-btn.active,.date-btn:hover{background:var(--red);color:var(--blue)}
 .day-panel{display:grid;grid-template-columns:.9fr 1.1fr;border:2px solid var(--red);min-height:520px}
-.day-visual{background:var(--red);color:var(--blue);padding:34px;position:relative;overflow:hidden}
+.day-visual{background:var(--red);color:var(--blue);padding:34px;position:relative;overflow:hidden;min-height:520px}
+.day-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.44;filter:saturate(.82) contrast(1.05)}
+.day-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(183,31,38,.20),rgba(183,31,38,.75) 72%,rgba(183,31,38,.95));pointer-events:none}
+.day-visual>*:not(.day-photo){position:relative;z-index:2}
 .day-visual:before{content:"上海";position:absolute;right:-14px;bottom:-35px;font-family:"EB Garamond",serif;font-size:170px;opacity:.14}
 .day-kicker{text-transform:uppercase;letter-spacing:.16em;font-size:10px}
 .day-date{font-family:"EB Garamond",serif;font-size:72px;line-height:.9;margin:18px 0 10px}
@@ -84,7 +87,13 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 .cards-title{margin:64px 0 20px;font-family:"EB Garamond",serif;font-size:56px;font-weight:500}
 .editorial-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.ecard{border:1.5px solid var(--red);min-height:220px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.ecard{border:1.5px solid var(--red);min-height:320px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.ecard .place-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;transition:.45s;filter:saturate(.85) contrast(1.04)}
+.ecard:hover .place-img{transform:scale(1.035)}
+.ecard:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(198,219,234,.02),rgba(198,219,234,.12) 45%,rgba(198,219,234,.96) 100%);pointer-events:none}
+.ecard:nth-child(2):after,.ecard:nth-child(6):after{background:linear-gradient(180deg,rgba(183,31,38,.02),rgba(183,31,38,.18) 45%,rgba(183,31,38,.94) 100%)}
+.ecard>div:not(.ghost){position:relative;z-index:2}
+.photo-credit{font-size:9px;opacity:.72;margin-top:10px;text-transform:uppercase;letter-spacing:.08em}
 .ecard:nth-child(1){grid-column:span 5;background:var(--cream)}
 .ecard:nth-child(2){grid-column:span 3;background:var(--red);color:var(--blue)}
 .ecard:nth-child(3){grid-column:span 4}
@@ -182,6 +191,7 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 <div class="date-strip" id="dateStrip"></div>
 <div class="day-panel">
   <div class="day-visual">
+    <img class="day-photo" id="dayPhoto" alt="">
     <div class="day-kicker" id="dayKicker"></div>
     <div class="day-date" id="dayDate"></div>
     <h3 class="day-title" id="dayTitle"></h3>
@@ -193,12 +203,12 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 <h3 class="cards-title" id="places">Сохранённые места.</h3>
 <section class="editorial-grid">
-<div class="ecard"><div class="ghost">01</div><div class="num">01</div><div><h4>Oriental Pearl / Lujiazui</h4><p>Лёгкий день рядом с базой, огни Пудуна и вечерняя набережная.</p></div></div>
-<div class="ecard"><div class="ghost">02</div><div class="num">02</div><div><h4>The Louis + NikeSKIMS</h4><p>Nanjing West / Jing’an — retail, архитектура и временные проекты.</p></div></div>
-<div class="ecard"><div class="ghost">03</div><div class="num">03</div><div><h4>Yuyuan + Old Street</h4><p>Старый город, сады и классическая шанхайская атмосфера.</p></div></div>
-<div class="ecard"><div class="ghost">04</div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Сильная музейная точка рядом с Jing’an Sculpture Park.</p></div></div>
-<div class="ecard"><div class="ghost">05</div><div class="num">05</div><div><h4>Wukang + Anfu</h4><p>Subdued, Brandy Melville, прогулка по бывшей французской концессии.</p></div></div>
-<div class="ecard"><div class="ghost">06</div><div class="num">06</div><div><h4>Gate M + Qiantan</h4><p>West Bund и красная спираль Endless Spiral в отдельном архитектурном дне.</p></div></div>
+<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20Tower%20Shanghai.jpg?width=1200" alt="Oriental Pearl Tower"><div class="ghost">01</div><div class="num">01</div><div><h4>Oriental Pearl / Lujiazui</h4><p>Лёгкий день рядом с базой, огни Пудуна и вечерняя набережная.</p><div class="photo-credit">Photo · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/2010%20Oriental%20Pearl%20Tower%2C%20Shanghai%2001.jpg?width=1000" alt="Shanghai skyline"><div class="ghost">02</div><div class="num">02</div><div><h4>The Louis + NikeSKIMS</h4><p>Nanjing West / Jing’an — retail, архитектура и временные проекты.</p><div class="photo-credit">Shanghai · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%2C%20Yu%20Garden.jpg?width=1200" alt="Yu Garden"><div class="ghost">03</div><div class="num">03</div><div><h4>Yuyuan + Old Street</h4><p>Старый город, сады и классическая шанхайская атмосфера.</p><div class="photo-credit">Yu Garden · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://photo.kubar.cn/photo/21355/20190903/20190903_1567502507_7935_2119_6542_8044.jpg" alt="Shanghai Natural History Museum"><div class="ghost">04</div><div class="num">04</div><div><h4>Natural History Museum</h4><p>Сильная музейная точка рядом с Jing’an Sculpture Park.</p><div class="photo-credit">Shanghai Natural History Museum</div></div></div>
+<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Wukang%20Road%20near%20Huaihai%20Road%2C%20Shanghai.jpg?width=1200" alt="Wukang Road"><div class="ghost">05</div><div class="num">05</div><div><h4>Wukang + Anfu</h4><p>Subdued, Brandy Melville, прогулка по бывшей французской концессии.</p><div class="photo-credit">Wukang Road · Wikimedia Commons</div></div></div>
+<div class="ecard"><img class="place-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/1000%20Trees%2020251127.jpg?width=1000" alt="1000 Trees Shanghai"><div class="ghost">06</div><div class="num">06</div><div><h4>1000 Trees + West Bund</h4><p>Архитектура, набережная и западная часть города.</p><div class="photo-credit">1000 Trees · Wikimedia Commons</div></div></div>
 </section>
 
 <section class="base" id="base">
@@ -216,58 +226,58 @@ linear-gradient(120deg,#071014 0%,#19100f 45%,#020202 100%)}
 
 <script>
 const days = [
-{d:"23.10",k:"пятница, 23 октября",t:"Вылет из Москвы",district:"Москва → Шанхай",stops:[
+{d:"23.10",k:"пятница, 23 октября",t:"Вылет из Москвы",district:"Москва → Шанхай",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20Tower%20Shanghai.jpg?width=1200",stops:[
 ["—","Дорога","Вылет из Москвы. Детали рейса добавим позже.",""]
 ]},
-{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",stops:[
+{d:"24.10",k:"суббота, 24 октября",t:"Космос и озеро Дишуй",district:"Lingang · дальний выезд",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Shanghaitianwenguan.jpg?width=1400",stops:[
 ["10:00","Shanghai Astronomy Museum","Космос, иммерсивные залы и архитектура. На посещение 3–4 часа.","上海市浦东新区临港大道380号"],
 ["13:30","COMMUNE · InterContinental Harbour City","Обед после музея. Китайские и международные блюда.","上海市浦东新区滴水湖南岛1号"],
 ["15:00","Dishui Lake · 滴水湖","Спокойная прогулка у воды перед дорогой обратно.",""]
 ]},
-{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и огни Пудуна",district:"Lujiazui · рядом с базой",stops:[
+{d:"25.10",k:"воскресенье, 25 октября",t:"Жемчужина и огни Пудуна",district:"Lujiazui · рядом с базой",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20Tower%20Shanghai.jpg?width=1400",stops:[
 ["11:00","Oriental Pearl / Lujiazui","Лёгкий день после дальнего выезда: район базы и виды на Пудун.",""],
 ["14:00","IFC / skyline stop","Обед и прогулка по деловому центру.",""],
 ["18:00","Riverside evening","Вечерняя прогулка и огни набережной.",""]
 ]},
-{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",stops:[
+{d:"26.10",k:"понедельник, 26 октября",t:"The Louis, NikeSKIMS и Mercedes",district:"Jing’an · West Nanjing Road",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20Tower%20SH%20CN.jpg?width=1200",stops:[
 ["11:00","The Louis","Архитектурно-брендовый проект Louis Vuitton.",""],
 ["13:00","HKRI Taikoo Hui","Nike x SKIMS и обед в районе Nanjing West.","789 Nanjing West Road"],
 ["16:00","Mercedes-Benz Studio","Временная выставочная точка рядом с кластером.",""]
 ]},
-{d:"27.10",k:"вторник, 27 октября",t:"Юйюань и старый город",district:"Huangpu · Old City",stops:[
+{d:"27.10",k:"вторник, 27 октября",t:"Юйюань и старый город",district:"Huangpu · Old City",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Shanghai%2C%20Yu%20Garden.jpg?width=1400",stops:[
 ["10:30","Yuyuan Garden","Сад, павильоны и классическая архитектура.",""],
 ["13:00","Shanghai Old Street","Старый город, еда и прогулка.",""],
 ["17:00","Bund / river view","Финал дня у реки.",""]
 ]},
-{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",stops:[
+{d:"28.10",k:"среда, 28 октября",t:"Динозавры и 1000 Trees",district:"Jing’an · Suzhou Creek",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/1000%20Trees%2020251127.jpg?width=1200",stops:[
 ["10:00","Shanghai Natural History Museum","Главная музейная точка дня.",""],
 ["13:30","Jing’an Sculpture Park","Прямо рядом — прогулка после музея.","128 Shimen 2nd Road"],
 ["16:30","1000 Trees","Архитектурный комплекс у Suzhou Creek.",""]
 ]},
-{d:"29.10",k:"четверг, 29 октября",t:"День большого парка",district:"Disneyland / LEGOLAND",stops:[
+{d:"29.10",k:"четверг, 29 октября",t:"День большого парка",district:"Disneyland / LEGOLAND",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20Tower%20Shanghai.jpg?width=1200",stops:[
 ["09:00","Выбор на весь день","Disneyland или LEGOLAND — отдельный дальний выезд без дополнительных точек.",""]
 ]},
-{d:"30.10",k:"пятница, 30 октября",t:"Wukang, Anfu и капибары",district:"Xuhui · Changning",stops:[
+{d:"30.10",k:"пятница, 30 октября",t:"Wukang, Anfu и капибары",district:"Xuhui · Changning",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Wukang%20Road%20near%20Huaihai%20Road%2C%20Shanghai.jpg?width=1400",stops:[
 ["11:00","Wukang Road","Subdued + прогулка по району.",""],
 ["13:00","Anfu Road","Brandy Melville и обед.",""],
 ["16:00","Capyland","Неформальная остановка из сохранённой подборки.",""]
 ]},
-{d:"31.10",k:"суббота, 31 октября",t:"Expo, The Roof и Huaihai",district:"Huangpu · city architecture",stops:[
+{d:"31.10",k:"суббота, 31 октября",t:"Expo, The Roof и Huaihai",district:"Huangpu · city architecture",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Wukang%20Road%20in%202025.jpg?width=1400",stops:[
 ["10:30","Shanghai World Expo Museum","Архитектура и выставочная часть.",""],
 ["14:30","The Roof · Xintiandi","Проект Jean Nouvel + прогулка.",""],
 ["17:00","Middle Huaihai Road","Matcha Wang и вечерний street-retail маршрут.",""]
 ]},
-{d:"01.11",k:"воскресенье, 1 ноября",t:"Красный павильон и тропики",district:"Expo Culture Park · Pudong",stops:[
+{d:"01.11",k:"воскресенье, 1 ноября",t:"Красный павильон и тропики",district:"Expo Culture Park · Pudong",photo:"https://9549927.s21i.faiusr.com/2/1/ABUIABACGAAgoszw9wUoh_-e_QcwrQk4kQU.jpg",stops:[
 ["11:00","China Art Museum / Expo zone","Искусство и большая архитектура.",""],
 ["14:30","Shanghai Greenhouse Garden","Тропическая / greenhouse часть дня.",""],
 ["17:30","Pudong return","Спокойный вечер рядом с базой.",""]
 ]},
-{d:"02.11",k:"понедельник, 2 ноября",t:"Gate M и красная спираль",district:"West Bund · Qiantan",stops:[
+{d:"02.11",k:"понедельник, 2 ноября",t:"Gate M и красная спираль",district:"West Bund · Qiantan",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/1000%20Trees%2020251127.jpg?width=1200",stops:[
 ["11:00","Gate M","TAGI и West Bund.",""],
 ["14:30","Qiantan Sifang City","Endless Spiral — красная лестница.",""],
 ["18:00","Последний вечер","Ужин и свободный шопинг.",""]
 ]},
-{d:"03.11",k:"вторник, 3 ноября",t:"Уже дома, в Москве",district:"Шанхай → Москва",stops:[
+{d:"03.11",k:"вторник, 3 ноября",t:"Уже дома, в Москве",district:"Шанхай → Москва",photo:"https://commons.wikimedia.org/wiki/Special:FilePath/Oriental%20Pearl%20Tower%20Shanghai.jpg?width=1200",stops:[
 ["—","Возвращение","Вылет домой. Время добавим после билетов.",""]
 ]}
 ];
@@ -275,7 +285,7 @@ const strip=document.getElementById('dateStrip');
 function render(i){
   document.querySelectorAll('.date-btn').forEach((b,j)=>b.classList.toggle('active',i===j));
   const x=days[i];
-  dayKicker.textContent=x.k; dayDate.textContent=x.d; dayTitle.textContent=x.t; dayDistrict.textContent=x.district;
+  dayKicker.textContent=x.k; dayDate.textContent=x.d; dayTitle.textContent=x.t; dayDistrict.textContent=x.district; dayPhoto.src=x.photo||""; dayPhoto.alt=x.t;
   dayContent.innerHTML=x.stops.map(s=>`
   <div class="stop">
     <div class="stop-time">${s[0]}</div>
