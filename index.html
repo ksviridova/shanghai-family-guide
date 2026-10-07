@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Shanghai · Family Archive</title>
+<meta name="theme-color" content="#b8d6e8"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#b9d7e8;color:#b21818;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit}
+.hero{min-height:100svh;position:relative;overflow:hidden;background:#050505;color:white;display:flex;flex-direction:column}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(.8) contrast(1.05)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.24),rgba(0,0,0,.38) 55%,rgba(0,0,0,.78))}
+.nav{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:24px 32px;text-transform:uppercase;letter-spacing:.18em;font-size:12px}
+.navlinks{display:flex;gap:24px}.nav a{text-decoration:none;opacity:.82}.nav a:hover{opacity:1}
+.hero-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 20px 100px}
+.kicker{font-size:12px;letter-spacing:.25em;text-transform:uppercase;margin-bottom:20px;opacity:.8}
+.hero h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(48px,8vw,124px);line-height:.92;margin:0;max-width:1000px;font-weight:600}
+.hero p{max-width:570px;font-size:clamp(14px,1.6vw,18px);line-height:1.6;color:rgba(255,255,255,.78);margin:28px auto}
+.cta{display:inline-flex;padding:14px 25px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(255,255,255,.05);backdrop-filter:blur(10px);text-decoration:none;text-transform:uppercase;letter-spacing:.15em;font-size:12px}
+.page{max-width:1180px;margin:0 auto;padding:70px 26px 120px}
+.mast{display:grid;grid-template-columns:1fr auto;gap:20px;border-top:2px solid #b21818;border-bottom:2px solid #b21818;padding:16px 0;margin-bottom:48px;font-size:12px;text-transform:uppercase;letter-spacing:.16em}
+.intro{display:grid;grid-template-columns:1.4fr .6fr;gap:34px;align-items:end;margin-bottom:60px}.intro h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(54px,8vw,112px);line-height:.9;margin:0}.stamp{font-size:56px;line-height:1}
+.days{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #b21818;border-left:1px solid #b21818;margin:30px 0 70px}.day{min-height:210px;border-right:1px solid #b21818;border-bottom:1px solid #b21818;padding:22px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}.day:hover{background:#b21818;color:#b9d7e8}.date{font-family:"Playfair Display",Georgia,serif;font-size:34px}.district{font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.76}.day h3{font-size:18px;margin:18px 0 8px;font-weight:500}
+.detail{background:#b21818;color:#b9d7e8;margin:0 -26px;padding:70px 26px}.detail-inner{max-width:1128px;margin:0 auto}.eyebrow{text-transform:uppercase;font-size:11px;letter-spacing:.18em}.detail h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(46px,7vw,92px);line-height:.95;margin:14px 0 30px}.timeline{display:grid;gap:14px}.stop{display:grid;grid-template-columns:110px 1fr;gap:20px;border-top:1px solid rgba(185,215,232,.45);padding:24px 0}.time{font-family:"Playfair Display",Georgia,serif;font-size:28px}.stop h4{margin:0 0 8px;font-size:22px}.stop p{margin:5px 0;line-height:1.55;color:rgba(185,215,232,.87)}.chip{display:inline-block;border:1px solid rgba(185,215,232,.5);border-radius:999px;padding:8px 12px;margin:8px 8px 0 0;font-size:11px;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}
+.base{padding:70px 0}.base h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(48px,7vw,90px);line-height:.95;margin:0 0 26px}.food{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.food-card{border:1px solid #b21818;padding:22px;min-height:180px}.food-card h3{margin:0 0 14px;font-size:20px}.food-card p{line-height:1.55;font-size:14px}.footer{border-top:2px solid #b21818;padding:26px 0 50px;display:flex;justify-content:space-between;gap:20px;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+.note{font-size:13px;line-height:1.6;max-width:700px}
+@media(max-width:800px){.navlinks{display:none}.nav{padding:18px}.intro{grid-template-columns:1fr}.days{grid-template-columns:1fr 1fr}.stop{grid-template-columns:80px 1fr}.food{grid-template-columns:1fr}.page{padding-left:18px;padding-right:18px}.detail{margin:0 -18px;padding-left:18px;padding-right:18px}}
+@media(max-width:520px){.days{grid-template-columns:1fr}.hero h1{font-size:54px}.intro h2{font-size:58px}.date{font-size:30px}.stop{grid-template-columns:1fr;gap:4px}.time{font-size:22px}}
+</style>
+</head>
+<body>
+<section class="hero" id="top">
+<video autoplay muted loop playsinline poster="">
+<source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260619_191346_9d19d66e-86a4-47f7-8dc6-712c1788c3b2.mp4" type="video/mp4">
+</video>
+<nav class="nav"><div>Shanghai / Family Archive</div><div class="navlinks"><a href="#days">По дням</a><a href="#base">Наша база</a><a href="#food">Еда</a></div></nav>
+<div class="hero-inner">
+<div class="kicker">上海 · осень 2026 · 23.10—03.11</div>
+<h1>WITNESS THE<br>HIDDEN SHANGHAI</h1>
+<p>Наш семейный маршрут по Шанхаю: день за днём, по районам, с адресами для такси, заметками и местами для еды.</p>
+<a class="cta" href="#days">Открыть маршрут</a>
+</div>
+</section>
+
+<main class="page">
+<div class="mast"><span>SHANGHAI / FAMILY ARCHIVE</span><span>Москва → Шанхай → Москва</span></div>
+<section class="intro">
+<div><div class="eyebrow">旅程 / family archive</div><h2>Китай,<br>день за днём.</h2></div>
+<div><div class="stamp">上海</div><p class="note">Маршрут собран по районам, чтобы не ездить через весь город туда‑сюда. Время ориентировочное; точный адрес жилья и рейсы добавим позже.</p></div>
+</section>
+
+<section id="days" class="days">
+<div class="day"><div><div class="date">23.10</div><div class="district">Москва → Шанхай</div></div><h3>Вылет из Москвы</h3></div>
+<div class="day"><div><div class="date">24.10</div><div class="district">Lingang · дальний выезд</div></div><h3>Космос и озеро Дишуй</h3></div>
+<div class="day"><div><div class="date">25.10</div><div class="district">Lujiazui · рядом с базой</div></div><h3>Жемчужина и огни Пудуна</h3></div>
+<div class="day"><div><div class="date">26.10</div><div class="district">Jing’an · West Nanjing Road</div></div><h3>The Louis, NikeSKIMS и Mercedes</h3></div>
+<div class="day"><div><div class="date">27.10</div><div class="district">Huangpu · старый центр</div></div><h3>Юйюань и старый город</h3></div>
+<div class="day"><div><div class="date">28.10</div><div class="district">Jing’an · Suzhou Creek</div></div><h3>Динозавры и 1000 Trees</h3></div>
+<div class="day"><div><div class="date">29.10</div><div class="district">Большой парк</div></div><h3>Disneyland / LEGOLAND</h3></div>
+<div class="day"><div><div class="date">30.10</div><div class="district">Xuhui · Changning</div></div><h3>Wukang, Anfu и капибары</h3></div>
+<div class="day"><div><div class="date">31.10</div><div class="district">Huangpu · западный берег</div></div><h3>Expo, The Roof и Huaihai</h3></div>
+<div class="day"><div><div class="date">01.11</div><div class="district">Expo Culture Park · Pudong</div></div><h3>Красный павильон и тропики</h3></div>
+<div class="day"><div><div class="date">02.11</div><div class="district">West Bund · Qiantan</div></div><h3>Gate M и красная спираль</h3></div>
+<div class="day"><div><div class="date">03.11</div><div class="district">Шанхай → Москва</div></div><h3>Возвращение домой</h3></div>
+</section>
+</main>
+
+<section class="detail">
+<div class="detail-inner">
+<div class="eyebrow">Суббота, 24 октября · Lingang</div>
+<h2>Космос<br>и озеро Дишуй</h2>
+<div class="timeline">
+<div class="stop"><div class="time">10:00</div><div><h4>Shanghai Astronomy Museum</h4><p>Космос, иммерсивные залы и архитектура. На посещение — примерно 3–4 часа.</p><p><b>地址:</b> 上海市浦东新区临港大道380号 · 380 Lingang Avenue, Pudong</p><p><b>Метро:</b> линия 16 · Dishui Lake / 滴水湖</p><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Shanghai+Astronomy+Museum" target="_blank" rel="noopener">Открыть карту</a></div></div>
+<div class="stop"><div class="time">13:30</div><div><h4>COMMUNE · InterContinental Harbour City</h4><p>Китайские и международные блюда. Удобная остановка на обед после музея.</p><p><b>地址:</b> 上海市浦东新区滴水湖南岛1号</p><a class="chip" href="https://www.google.com/maps/search/?api=1&query=InterContinental+Shanghai+Harbour+City" target="_blank" rel="noopener">Открыть карту</a></div></div>
+<div class="stop"><div class="time">15:00</div><div><h4>Dishui Lake · 滴水湖</h4><p>Спокойная прогулка у воды перед дорогой обратно в центр.</p><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Dishui+Lake+Shanghai" target="_blank" rel="noopener">Открыть карту</a></div></div>
+</div>
+</div>
+</section>
+
+<main class="page">
+<section id="base" class="base">
+<div class="eyebrow">Наша база · Pudong / Lujiazui</div>
+<h2>Живём у<br>Жемчужины.</h2>
+<p class="note">Пока ориентируемся на район Oriental Pearl / 陆家嘴. Когда будет точный адрес жилья, сюда добавим время до каждой точки и оптимальный маршрут домой.</p>
+<div id="food" class="food">
+<div class="food-card"><h3>Din Tai Fung · IFC</h3><p>Сяолунбао, рис и лапша — удобный семейный обед рядом с базой.</p><p>上海市浦东新区世纪大道8号 上海国金中心LG1-17</p></div>
+<div class="food-card"><h3>Tsui Wah · Super Brand Mall</h3><p>Гонконгское кафе: рис, лапша и чай. Подходит для ужина рядом с Oriental Pearl.</p><p>上海市浦东新区陆家嘴西路168号 正大广场6F10</p></div>
+</div>
+</section>
+<footer class="footer"><span>Shanghai / Family Archive · 2026</span><a href="#top">Наверх ↑</a></footer>
+</main>
+</body>
+</html>
